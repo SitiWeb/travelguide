@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.background-blue-camel {
+    background-color: #114778;
+}
+
+.border-blue-camel {
+    border-color: #114778;
+}
+
+.background-blue-camel-alt {
+    background-color: #00abe3;
+}
+
+.background-blue-camel-yellow {
+    background-color: #fdea34;
+}
+
+.text-color-camel-blue {
+    color: #114778;
+}
+
+.text-color-camel {
+    color: #fdea34;
+}
+
+.text-color-camel-alt {
+    color: #00abe3;
+}
+
+.text-color-terms {
+    color: #a5a4a5;
+}
+
+
+/* Customize step circle size and styles */
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #0f73a7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #0f73a7;
+}
+
+.step-circle.active {
+    background-color: #00abe3;
+    border: 2px solid #00abe3;
+    color: #fdea34;
+}
+
+
+/* Customize step checkmark styles */
+
+.step-checkmark {
+    position: absolute;
+    font-size: 24px;
+    /* color: #fdea34; */
+    right: 3px;
+    bottom: 3px;
+}
+
+
+/* Customize step separator styles */
+
+.step-separator {
+    margin-right: 20px;
+}
