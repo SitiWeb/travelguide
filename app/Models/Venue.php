@@ -12,6 +12,15 @@ class Venue extends Model
         'title',
         'address',
         'url',
-        'price'
+        'price',
+        'activity_type',
+        'destination_id'
     ];
+    protected $table = 'venues';
+
+    // Define the inverse of the one-to-many relationship with the Destination model
+    public function destination()
+    {
+        return $this->belongsTo(Destination::class);
+    }
 }

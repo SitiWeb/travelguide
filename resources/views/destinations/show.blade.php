@@ -1,6 +1,10 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Destination') }}
+        </h2>
+    </x-slot>
     <div class="container mx-auto mt-4">
-        <h2 class="text-2xl font-bold mb-4">Destination Details</h2>
 
         <div>
             <p><span class="font-semibold">City:</span> {{ $destination->city }}</p>
@@ -12,6 +16,10 @@
 
         <div>
             <p><span class="font-semibold">Description:</span> {{ $destination->description }}</p>
+        </div>
+
+        <div>
+            <p><span class="font-semibold">Type:</span> {{ $destination->type->name }}</p>
         </div>
 
         <div class="mt-4">

@@ -1,6 +1,10 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Create question') }}
+        </h2>
+    </x-slot>
     <div class="container mx-auto mt-4">
-        <h2 class="text-2xl font-bold mb-4">Create a New Question</h2>
         <form action="{{ route('questions.store') }}" method="POST" class="space-y-4">
             @csrf
             <div>

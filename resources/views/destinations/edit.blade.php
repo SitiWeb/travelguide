@@ -1,6 +1,11 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Update Destination') }}
+        </h2>
+    </x-slot>
     <div class="container mx-auto mt-4">
-        <h2 class="text-2xl font-bold mb-4">Edit Destination</h2>
+        
         <form action="{{ route('destinations.update', $destination->id) }}" method="POST" class="space-y-4">
             @csrf
             @method('PUT')
@@ -12,7 +17,22 @@
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
-
+            <div>
+                <label for="type_id" class="block font-semibold mb-1">Select activity type</label>
+                <select name="type_id" id="type_id" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('destination_id') border-red-500 @enderror" required>
+                    <option value="" selected disabled>Select a type</option>
+                    @foreach($types as $type)
+                        @if ($destination->type_id == $type->id)
+                        <option value="{{ $type->id }}" selected>{{ $type->name }}</option>
+                        @else
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                @error('type_id')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+            </div>
             <div>
                 <label for="country" class="block font-semibold mb-1">Country</label>
                 <input type="text" name="country" id="country" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('country') border-red-500 @enderror" value="{{ old('country', $destination->country) }}" required>

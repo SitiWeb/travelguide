@@ -5,22 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Destination extends Model
+class Answer extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'city',
-        'country',
-        'description',
-        'type_id'
+        'type_id',
+        'question_1',
+        'question_2',
+        'question_3',
+        'question_4',
+        'question_5',
     ];
-
-    protected $table = 'destinations';
-
-    // Define the relationship with the Type model
     public function type()
     {
         return $this->belongsTo(Type::class);
     }
-  
 }

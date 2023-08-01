@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Venue;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
 class VenuesController extends Controller
@@ -13,8 +14,9 @@ class VenuesController extends Controller
      */
     public function index()
     {
+        $destinations = Destination::all();
         $venues = Venue::all();
-        return view('venues.index', compact('venues'));
+        return view('venues.index', compact('venues', 'destinations'));
     }
 
     /**
@@ -24,6 +26,8 @@ class VenuesController extends Controller
      */
     public function show(Venue $venue)
     {
+        // Eager load the 'type' relationship
+        $venue->load('destination');
         return view('venues.show', compact('venue'));
     }
 
@@ -36,19 +40,31 @@ class VenuesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'city' => 'required|max:255',
-            'country' => 'required|max:255',
-            'description' => 'required',
+            'title' => 'required|max:255',
+            'address' => 'max:255',
+            'url' => 'max:255',
+            'price' => 'max:255',
+            'activity_type' => 'max:255',
+            'destination_id' => 'required|exists:destinations,id', // Validate destination_id and check if it exists in the destinations table
         ]);
-
-        Venue::create($request->only('city', 'country', 'description'));
+    
+        // Create the venue with the destination_id included
+        Venue::create([
+            'title' => $request->input('title'),
+            'address' => $request->input('address'),
+            'url' => $request->input('url'),
+            'price' => $request->input('price'),
+            'activity_type' => $request->input('activity_type'),
+            'destination_id' => $request->input('destination_id'),
+        ]);
 
         return redirect()->route('venues.index')->with('success', 'Venue created successfully.');
     }
 
     public function create()
     {
-        return view('venues.create');
+        $destinations = Destination::all();
+        return view('venues.create', compact('destinations'));
     }
 
     /**
@@ -59,8 +75,10 @@ class VenuesController extends Controller
      */
     public function edit($id)
     {
-        $venue = Venue::findOrFail($id);
-        return view('venues.edit', compact('venue'));
+        $destinations = Destination::all();
+        $venue = Venue::with('destination')->findOrFail($id);
+
+        return view('venues.edit', compact('venue', 'destinations'));
     }
 
     /**
@@ -73,14 +91,16 @@ class VenuesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'city' => 'required|max:255',
-            'country' => 'required|max:255',
-            'description' => 'required',
+            'title' => 'required|max:255',
+            'address' => 'max:255',
+            'url' => 'max:255',
+            'price' => 'max:255',
+            'activity_type' => 'max:255',
         ]);
 
         $venue = Venue::findOrFail($id);
 
-        $venue->update($request->only('city', 'country', 'description'));
+        $venue->update($request->only('title', 'address', 'url', 'price', 'activity_type'));
 
         return redirect()->route('venues.show', $venue->id)->with('success', 'Venue updated successfully.');
     }
