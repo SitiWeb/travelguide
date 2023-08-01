@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\FrontendController;
-
+use App\Http\Controllers\VenuesController;
+use App\Http\Controllers\DestinationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,13 +45,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-        // Create Question
-        Route::get('/backend/questions/create', [QuestionController::class, 'create'])->name('questions.create');
-    // List Questions
-    Route::get('/backend/questions', [QuestionController::class, 'index'])->name('questions.index');
 
-    // Show Question
-    Route::get('/backend/questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
+    Route::resource('/backend/questions',QuestionController::class);
+    Route::resource('/backend/destinations',DestinationController::class);
+    Route::resource('/backend/venues',VenuesController::class);
 
 
     Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');

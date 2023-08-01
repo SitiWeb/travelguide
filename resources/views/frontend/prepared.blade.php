@@ -30,29 +30,11 @@
             success: function(response) {
                 if (response.status === 'success') {
                     if (response.redirect_url){
-                        window.location.href = response.next_question_url;
+                        window.location.href = response.redirect_url;
                     }
                     else{
                         jQuery('.steps-wrapper').html(response.steps_html);
-                        jQuery('.card-wrapper').html(response.question_html);
-                        var box = document.querySelector('#card-3');
-
-                        // GSAP Animation
-                        gsap.set(box, { transformStyle: 'preserve-3d' });
-
-                        gsap.to(box, {
-                            duration: 1.5,
-                            
-                            backgroundColor: 'yellow',
-                            rotationY: 180,
-                            rotationX: 10,
-                            onComplete: function() {
-                                box.style.zIndex = -1;
-                            },
-                        });
-
-                        
-                        
+                        jQuery('.card-wrapper').html(response.question_html);                 
                      
                         // Attach an event listener to the radio buttons
                         $('input[type="radio"]').on('change', function() {
@@ -70,22 +52,24 @@
             }
         });
     }
+
     function change_cards(){
-        // app.js
-    var box = document.querySelector('#card-3');
+   
+var box = document.querySelector('#card-3');
 
-    // GSAP Animation
-    gsap.set(box, { transformStyle: 'preserve-3d' });
+// Create a new Timeline
+const timeline = gsap.timeline();
 
-    gsap.to(box, {
-        duration: 1.5,
-        scale: 2,
-        backgroundColor: '#e74c3c',
-        rotationX: 180,
-        onComplete: function() {
-            box.style.zIndex = 10;
-        },
-    });
+// Move the box 200 pixels to the left
+timeline.to(box, { x: '-=200', duration: 0.3 });
+
+// Flip the box backside (assuming you have a CSS class for the backside)
+timeline.to(box, { rotationY: 180,zIndex: -10,backgroundColor: '#fdea34', duration: 0.5 });
+
+
+
+// Move back the box to the original position
+timeline.to(box, { x: '+=200', rotate: 10, duration: 0.3 });
 
     }
 </script>
