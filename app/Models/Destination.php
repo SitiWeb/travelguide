@@ -12,7 +12,8 @@ class Destination extends Model
         'city',
         'country',
         'description',
-        'type_id'
+        'type_id',
+        'pdf_path'
     ];
 
     protected $table = 'destinations';
@@ -21,6 +22,11 @@ class Destination extends Model
     public function type()
     {
         return $this->belongsTo(Type::class);
+    }
+    // Define the relationship with the Venue model
+    public function venues()
+    {
+        return $this->hasMany(Venue::class);
     }
   
 }

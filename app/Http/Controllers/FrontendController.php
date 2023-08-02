@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Question;
+use App\Models\Destination;
 use App\Models\Answer;
+use App\Models\Userresponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
@@ -16,13 +18,10 @@ class FrontendController extends Controller
         return view('frontend.prepared', compact('question'));
     }
 
-    public function end(){
-
-        $user_responses = Session::get('user_responses');
-        $answerModel = new Answer();
-        $answer = $answerModel->get_type($user_responses);
-
-        return view('frontend.end',  compact('answer'));
+    public function end($id){
+        $response = (Userresponse::find($id));
+        $destination = Destination::where('id',$response->destination)->first();
+        return view('frontend.end',  compact('destination'));
         
     }
 
@@ -67,6 +66,17 @@ class FrontendController extends Controller
             $user_responses = Session::get('user_responses');
             $answerModel = new Answer();
             $answer = $answerModel->get_type($user_responses);
+
+            $randomDestination = Destination::where('type_id',  $answer->type->id)->inRandomOrder()->first();
+            Userresponse::create(
+                [
+                    'userresponse' => json_encode($user_responses),
+                    'ip' => request()->ip(),
+                    'submitted_time' => now(), // If you want to set the current timestamp
+                    'destination' => $randomDestination->id,
+                ]
+            );
+
             return new JsonResponse([
                 'status' => 'success',
                 'answer' => $answer,

@@ -48,6 +48,7 @@ class DestinationController extends Controller
             'country' => 'required|max:255',
             'description' => 'required',
             'type_id' => 'required',
+            'pdf' => 'nullable|file|mimes:pdf|max:10000', // Optional: Change the max file size as per your requirement
         ]);
 
         Destination::create($request->only('city', 'country', 'description', 'type_id'));
@@ -90,11 +91,22 @@ class DestinationController extends Controller
             'country' => 'required|max:255',
             'description' => 'required',
             'type_id' => 'required',
+            'pdf' => 'nullable|file|mimes:pdf|max:10000', // Optional: Change the max file size as per your requirement
         ]);
 
         $destination = Destination::findOrFail($id);
 
         $destination->update($request->only('city', 'country', 'description', 'type_id'));
+
+         // Handle PDF upload if a new PDF file is provided
+if ($request->hasFile('pdf') && $request->file('pdf')->isValid()) {
+    $originalFileName = $request->file('pdf')->getClientOriginalName();
+    $pdfPath = $request->file('pdf')->storeAs('pdfs', $originalFileName, 'public'); // Change the storage path as per your requirement
+
+    // Save the PDF path to the destination
+    $destination->pdf_path = $pdfPath;
+    $destination->save();
+}
 
         return redirect()->route('destinations.show', $destination->id)->with('success', 'Destination updated successfully.');
     }
@@ -108,6 +120,9 @@ class DestinationController extends Controller
     public function destroy($id)
     {
         $destination = Destination::findOrFail($id);
+         // Delete associated venues first
+        $destination->venues()->delete();
+
         $destination->delete();
 
         return redirect()->route('destinations.index')->with('success', 'Destination deleted successfully.');

@@ -28,8 +28,10 @@ Route::get('/questions', function () {
 
 Route::get('/questions', [FrontendController::class, 'showQuestion'] )->name('questions');
 
-Route::get('/end', [FrontendController::class, 'end'] )->name('end');
-
+Route::get('/end/{id}', [FrontendController::class, 'end'] )->name('end');
+Route::get('/terms', function () {
+    return view('frontend.terms');
+})->name('frontend.terms');
 
 // Route for saving responses
 Route::post('/save-response', [FrontendController::class, 'saveResponse'])->name('save_response');

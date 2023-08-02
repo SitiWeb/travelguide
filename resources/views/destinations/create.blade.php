@@ -6,7 +6,7 @@
     </x-slot>
     <div class="container mx-auto mt-4">
         
-        <form action="{{ route('destinations.store') }}" method="POST" class="space-y-4">
+        <form action="{{ route('destinations.store') }}" method="POST" class="space-y-4" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="city" class="block font-semibold mb-1">City</label>
@@ -36,8 +36,18 @@
             </div>
             <div>
                 <label for="description" class="block font-semibold mb-1">Description</label>
-                <input type="text" name="description" id="description" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('description') border-red-500 @enderror" required>
+                <textarea name="description" id="description" rows="4" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('description') border-red-500 @enderror" required></textarea>
                 @error('description')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+            </div>
+
+            
+            <!-- Add PDF upload field -->
+            <div>
+                <label for="pdf" class="block font-semibold mb-1">Upload PDF</label>
+                <input type="file" name="pdf" id="pdf" accept=".pdf" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('pdf') border-red-500 @enderror" required>
+                @error('pdf')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>

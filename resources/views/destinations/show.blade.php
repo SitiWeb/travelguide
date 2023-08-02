@@ -21,7 +21,12 @@
         <div>
             <p><span class="font-semibold">Type:</span> {{ $destination->type->name }}</p>
         </div>
-
+            <!-- Download PDF button -->
+            @if($destination->pdf_path)
+            <div class="block mt-2">
+                <a href="{{ asset('storage/' . $destination->pdf_path) }}" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" download>Download PDF</a>
+            </div>        
+            @endif
         <div class="mt-4">
             <a href="{{ route('destinations.edit', $destination->id) }}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Edit</a>
             <form action="{{ route('destinations.destroy', $destination->id) }}" method="POST" class="inline-block">

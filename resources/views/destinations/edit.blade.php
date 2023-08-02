@@ -6,7 +6,7 @@
     </x-slot>
     <div class="container mx-auto mt-4">
         
-        <form action="{{ route('destinations.update', $destination->id) }}" method="POST" class="space-y-4">
+        <form action="{{ route('destinations.update', $destination->id) }}" method="POST" class="space-y-4" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -40,15 +40,29 @@
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
-
             <div>
                 <label for="description" class="block font-semibold mb-1">Description</label>
-                <input type="text" name="description" id="description" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('description') border-red-500 @enderror" value="{{ old('description', $destination->description) }}" required>
+                <textarea name="description" id="description" rows="4" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('description') border-red-500 @enderror" required>{{ old('description', $destination->description) }}</textarea>
                 @error('description')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
+            <!-- Add PDF upload field -->
+            <div>
+                <label for="pdf" class="block font-semibold mb-1">Upload PDF</label>
+                <input type="file" name="pdf" id="pdf" accept=".pdf" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('pdf') border-red-500 @enderror">
+                @error('pdf')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+                
+                <p class="mt-2 text-sm text-gray-500">
+                @if($destination->pdf_path)
+
+                <a href="{{ asset('storage/' . $destination->pdf_path) }}" class="text-blue-600" download>{{substr($destination->pdf_path, 5)}}</a>    <br>
+                @endif
+                Leave this field empty if you don't want to change the PDF.</p>
+            </div>
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Update</button>
         </form>
     </div>

@@ -13,7 +13,7 @@ class Type extends Model
 
     ];
     // Define the relationship with the Venue model
-    public function venues()
+    public function destinations()
     {
         return $this->hasMany(Venue::class);
     }
