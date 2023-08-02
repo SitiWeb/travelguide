@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 422 452">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #fdea34;
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-3 {
+        fill: #1cace2;
+        filter: url(#drop-shadow-2);
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-4" x="8.71" y="4.17" width="375.46" height="445.04"/>
+    </clipPath>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#034676" flood-opacity=".75"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur-2" stdDeviation="5"/>
+      <feFlood flood-color="#034676" flood-opacity=".75"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Background">
+    <g id="Frame">
+      <g class="cls-5">
+        <g>
+          <path id="Path_149" data-name="Path 149" class="cls-2" d="m14.77,131.56l237.91-51.85c4.57-1,9.1,1.8,10.26,6.33l68.81,281.76c1.07,4.38-1.62,8.81-6,9.87-.09.02-.19.04-.28.06l-237.91,51.85c-4.57,1-9.1-1.8-10.26-6.33L8.48,141.5c-1.07-4.38,1.62-8.81,6-9.87.09-.02.19-.04.28-.06Z"/>
+          <path id="Path_148" data-name="Path 148" class="cls-3" d="m136.95,8.42l254.68,44.29c4.85.82,8.12,5.41,7.3,10.25,0,.02,0,.04,0,.05l-54.26,303.7c-.9,4.86-5.55,8.09-10.42,7.23l-254.68-44.29c-4.85-.82-8.12-5.41-7.3-10.25,0-.02,0-.04,0-.05L126.52,15.65c.9-4.86,5.55-8.09,10.42-7.23Z"/>
+          <rect id="Rectangle_35-2" data-name="Rectangle 35-2" class="cls-1" x="38.94" y="46.4" width="314.54" height="362.65" rx="10" ry="10"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
