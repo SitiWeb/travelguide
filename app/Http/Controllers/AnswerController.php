@@ -15,7 +15,11 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        $answers = Answer::all();
+        $answers = Answer::with('type')->get();
+
+        foreach($answers as $answer){
+            dd($answer);
+        }
         return view('answers.index', compact('answers'));
     }
 
@@ -107,9 +111,9 @@ class AnswerController extends Controller
      */
     public function destroy($id)
     {
-        $destination = Destination::findOrFail($id);
+        $destination = Answer::findOrFail($id);
         $destination->delete();
 
-        return redirect()->route('destinations.index')->with('success', 'Destination deleted successfully.');
+        return redirect()->route('answers.index')->with('success', 'Destination deleted successfully.');
     }
 }

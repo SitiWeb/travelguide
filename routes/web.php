@@ -28,15 +28,13 @@ Route::get('/questions', function () {
 
 Route::get('/questions', [FrontendController::class, 'showQuestion'] )->name('questions');
 
-Route::get('/end', function () {
-    return view('frontend.end');
-})->name('end');
+Route::get('/end', [FrontendController::class, 'end'] )->name('end');
+
+
 // Route for saving responses
-Route::post('/save-response', [FrontendController::class, 'saveResponse'])
-    ->name('save_response');
+Route::post('/save-response', [FrontendController::class, 'saveResponse'])->name('save_response');
 Route::get('/questions/{id}', [FrontendController::class, 'showQuestion'] )->name('render');
-Route::post('/clear-responses', [FrontendController::class, 'clearResponses'])
-    ->name('clear_responses');
+Route::post('/clear-responses', [FrontendController::class, 'clearResponses'])->name('clear_responses');
 
 Route::get('/', function () {
     return view('welcome');

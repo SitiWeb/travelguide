@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
@@ -13,6 +14,16 @@ class FrontendController extends Controller
         
         $question = (Question::find($id));
         return view('frontend.prepared', compact('question'));
+    }
+
+    public function end(){
+
+        $user_responses = Session::get('user_responses');
+        $answerModel = new Answer();
+        $answer = $answerModel->get_type($user_responses);
+        
+        return view('frontend.end',  compact('answer'));
+        
     }
 
     public function showQuestion($id = false)
@@ -37,10 +48,10 @@ class FrontendController extends Controller
     {
         $answer = $request->input('option');
         $questionId = key($answer);
-        
+
         // Save the response in the session (e.g., using an array)
-        $userResponses = Session::get('user_responses', []);
-        $userResponses[$questionId] = $answer;
+        $userResponses = Session::get('user_responses');
+        $userResponses[$questionId] = $answer[$questionId];
         Session::put('user_responses', $userResponses);
       
         // Update the current question ID in the session for the next iteration
@@ -62,10 +73,15 @@ class FrontendController extends Controller
 
             // // Clear the user responses from the session after saving to the database
             // Session::forget('user_responses');
-
+ 
+            //return redirect()->route('end');
             // Redirect to the thank you page or any other desired page
+            $user_responses = Session::get('user_responses');
+            $answerModel = new Answer();
+            $answer = $answerModel->get_type($user_responses);
             return new JsonResponse([
                 'status' => 'success',
+                'answer' => $answer,
                 'redirect_url' => route('end'),
                 'user_responses' => Session::get('user_responses')
             ]);

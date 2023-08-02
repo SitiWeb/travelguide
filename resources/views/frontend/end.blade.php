@@ -5,6 +5,7 @@
 </form>
 
 <x-title class="mb-8 text-2xl">Start planning<br>your next trip</x-title>
+<x-title class="mb-8 text-2xl">{{$answer->type->name}}</x-title>
 <x-text class="mb-8">Please find your suggested<br>travel destination below</x-text>
 <x-button url="{{route('questions')}}">Download PDF</x-button>
 

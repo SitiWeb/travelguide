@@ -20,4 +20,17 @@ class Answer extends Model
     {
         return $this->belongsTo(Type::class);
     }
+    public function get_type($user_responses){
+       
+        $answer = Answer::where(
+            [
+            ['question_1', $user_responses[1]],
+            ['question_2', $user_responses[2]],
+            ['question_3', $user_responses[3]],
+            ['question_4', $user_responses[4]],
+            ['question_5', $user_responses[5]],
+            ]
+        )->with('type')->first();
+        return $answer;
+    }
 }
