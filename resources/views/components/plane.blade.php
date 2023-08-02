@@ -6,5 +6,5 @@
 $width = '';
 @endif
 <div {{ $attributes->merge(['class' => 'flex justify-center items-center w-full banner-image']) }}>
-    <img class="{{$width}}" src="{{ url('storage/plane.svg') }}">
+    <img class="{{$width}}" src="{{ url('storage/Plane.svg') }}">
 </div>
