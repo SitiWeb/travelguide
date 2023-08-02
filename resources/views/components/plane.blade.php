@@ -1,3 +1,10 @@
-<div class="banner-image">
-    <img src="{{ url('storage/plane.svg') }}">
+<!-- resources/views/components/banner-image.blade.php -->
+@props(['width'])
+@isset($width)
+
+@else
+$width = '';
+@endif
+<div {{ $attributes->merge(['class' => 'flex justify-center items-center w-full banner-image']) }}>
+    <img class="{{$width}}" src="{{ url('storage/plane.svg') }}">
 </div>

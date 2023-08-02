@@ -10,7 +10,34 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <STYLE>
+            @font-face {
+                font-family: IqbalCamel;
+                src: url("{{ url('storage/CAMEL-BOLD.ttf') }}");
+            }
 
+            @font-face {
+                font-family: Graphik-bold;
+                src: url("{{ url('storage/GRAPHIK-BOLD.ttf') }}");
+            }
+
+            @font-face {
+                font-family: Graphik-regular;
+                src: url("{{ url('storage/GRAPHIK-LIGHT.ttf') }}");
+            }
+
+            .camel-font {
+                font-family: IqbalCamel;
+                text-transform: uppercase;
+            }
+
+            .graphik-font {
+                font-family: Graphik-bold;
+            }
+            .bg-footer-image {
+                background-image:url('{{ url('storage/Footer4x.png') }}');
+            }
+        </STYLE>
         <!-- Scripts -->
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,10 +47,10 @@
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
-    <body class="font-sans text-gray-900 antialiased background-blue-camel">
+    <body class="font-sans text-gray-900 antialiased background-blue-camel bg-footer-image bg-no-repeat bg-contain bg-bottom" >
  
 
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0" >
+        <div class="min-h-screen flex flex-col pt-24 items-center "  >
          
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 sm:rounded-lg">
