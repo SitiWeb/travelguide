@@ -16,10 +16,11 @@ class AnswerController extends Controller
     public function index()
     {
         $answers = Answer::with('type')->get();
-
+        $sorted = [];
         foreach($answers as $answer){
-            dd($answer);
+            $sorted[$answer->type->name][] = $answer;
         }
+        $answers = ($sorted);
         return view('answers.index', compact('answers'));
     }
 
