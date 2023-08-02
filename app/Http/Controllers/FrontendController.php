@@ -21,7 +21,7 @@ class FrontendController extends Controller
         $user_responses = Session::get('user_responses');
         $answerModel = new Answer();
         $answer = $answerModel->get_type($user_responses);
-        
+
         return view('frontend.end',  compact('answer'));
         
     }
@@ -38,7 +38,8 @@ class FrontendController extends Controller
 
         // Redirect to a "thank you" page if there are no more questions to display
         if (!$question) {
-            return view('frontend.end');
+            return redirect()->route('end');
+           
         }
 
         return view('frontend.prepared', compact('question'));
@@ -62,19 +63,6 @@ class FrontendController extends Controller
         $totalQuestions = count(Question::all()); // Assuming you have a Question model
         
         if ($nextQuestionId > $totalQuestions) {
-            // // Save the responses in the database
-            // foreach ($userResponses as $questionId => $answer) {
-            //     $response = new QuestionResponse([
-            //         'question_id' => $questionId,
-            //         'answer' => $answer,
-            //     ]);
-            //     $response->save();
-            // }
-
-            // // Clear the user responses from the session after saving to the database
-            // Session::forget('user_responses');
- 
-            //return redirect()->route('end');
             // Redirect to the thank you page or any other desired page
             $user_responses = Session::get('user_responses');
             $answerModel = new Answer();
