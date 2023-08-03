@@ -66,6 +66,11 @@
     margin-bottom: 20px;
 }
 
+.toggleable-div {
+    display: none;
+    /* Add your styling for the hidden divs here */
+}
+
 
 /* Customize step circle size and styles */
 

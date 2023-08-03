@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout  background="{{url('storage/Footer2-4x.png')}}">
 <x-header-question/>
 
 <div class="steps-wrapper">

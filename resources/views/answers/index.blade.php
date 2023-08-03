@@ -9,61 +9,77 @@
         @foreach ($answers as $cat => $answerss)
 
             <div class="border-b border-gray-200 pb-5">
-            <h3 class="text-base font-semibold leading-6 text-gray-900 mt-12">{{$cat}}</h3>
+            <h3 class="text-base font-semibold leading-6 text-gray-900 mt-12 camel-font">{{$cat}}</h3>
             </div>
             <div class="container mx-auto mt-4 grid gap-4 grid-cols-4">
             @foreach($answerss as $answer)
             <a href="{{ route('answers.show', $answer->id) }}" class="text-blue-500">
-            <table class="table-auto">
-                <tr>
-                    <th>Option 1</th>
-                    <th>Option 2</th>
-                </tr>
-                <tr>
+                <table class="min-w-full divide-y divide-gray-300">
+                <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Question</th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Option 1</th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Option 2</th>
+                    </tr>
+                  </thead>
+                <tbody class="divide-y divide-gray-200 bg-white">
+                
+                <tr  class="even:bg-gray-50">
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">1</td>
                     @if ($answer->question_1 == 1)
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
-                        <td></td>
+                        
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
                     @else
-                        <td></td>
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
                     @endif
                 </tr>
-                <tr>
+                <tr  class="even:bg-gray-50">
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">2</td>
                     @if ($answer->question_2 == 1)
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
-                        <td></td>
+                        
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
                     @else
-                        <td></td>
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
                     @endif
                 </tr>
-                <tr>
+                <tr  class="even:bg-gray-50">
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">3</td>
                     @if ($answer->question_3 == 1)
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
-                        <td></td>
+                    
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
                     @else
-                        <td></td>
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
                     @endif
                 </tr>
-                <tr>
+                <tr  class="even:bg-gray-50">
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">4</td>
                     @if ($answer->question_4 == 1)
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
-                        <td></td>
+                   
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
                     @else
-                        <td></td>
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
                     @endif 
                 </tr>
-                <tr>
+                <tr  class="even:bg-gray-50"> 
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">5</td>
                     @if ($answer->question_5 == 1)
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
-                        <td></td>
+                    
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
                     @else
-                        <td></td>
-                        <td><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></td>
+                        <td scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><div class="text-center" style="width:20px;height:20px;background-color:green;border-radius:50%;"></div></td>
                     @endif
                 </tr>
+                </tbody>
             </table>
             </a>
 

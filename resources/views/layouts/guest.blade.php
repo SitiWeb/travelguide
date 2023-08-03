@@ -8,13 +8,21 @@ $route = request()->route()->getName();
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/MatQTPQ5HIn3wN5e38pa5z67zwobAmJbVAHQ1ZGP.png">
+        <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/nvtdDiwiIyLrmNIwYaE1wW4ujjJKqnPlesgeKcEx.png">
+        <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/uPwnUtgENs6oGze68SZIEVle44XQNew9jB2J3Hgz.png">
+        <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/7OEt1dSBmUch2d64bmcpKz5cPpNkyF9YZvWERKac.png">
+        <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/0OSaSPrAViwYWBaN6HBinM7MlEySwZYTCsgL4dHA.png">
         <title>{{ config('app.name', 'Travelguide') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <style>
+            body:after{
+          display: none;
+          content: url(http://localhost/travelguide/public/storage/images/MatQTPQ5HIn3wN5e38pa5z67zwobAmJbVAHQ1ZGP.png) url(http://localhost/travelguide/public/storage/images/nvtdDiwiIyLrmNIwYaE1wW4ujjJKqnPlesgeKcEx.png) url(http://localhost/travelguide/public/storage/images/uPwnUtgENs6oGze68SZIEVle44XQNew9jB2J3Hgz.png) url(http://localhost/travelguide/public/storage/images/7OEt1dSBmUch2d64bmcpKz5cPpNkyF9YZvWERKac.png) url(http://localhost/travelguide/public/storage/images/0OSaSPrAViwYWBaN6HBinM7MlEySwZYTCsgL4dHA.png);
+      }
             @font-face {
                 font-family: IqbalCamel;
                 src: url("{{ url('storage/CAMEL-BOLD.ttf') }}");
@@ -40,8 +48,9 @@ $route = request()->route()->getName();
             }
             .bg-footer-image {
                 background-image:url('{{ $background }}');
-                transition: background 1s linear;
+              
             }
+       
             
         </style>
         <!-- Scripts -->
@@ -56,7 +65,7 @@ $route = request()->route()->getName();
     <body class="page-{{ str_replace('.', '-', $route) }} font-sans text-gray-900 antialiased bg-white flex justify-center" >
  
 
-        <div class="border min-h-screen w-full sm:max-w-2xl flex flex-col justify-between py-24 items-center background-blue-camel bg-footer-image bg-cover bg-no-repeat bg-bottom md:bg-center lg:bg-center" >
+        <div class="sm:border min-h-screen w-full sm:max-w-2xl flex flex-col justify-between lg:py-24 sm:py-6 items-center background-blue-camel bg-footer-image bg-cover bg-no-repeat bg-bottom lg:bg-center" >
          
 
             <div class=" mt-6 px-6 py-4 sm:rounded-lg ">

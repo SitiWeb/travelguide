@@ -1,5 +1,5 @@
-<div class="p-4" style="background-color:#da651a">
-    <div class="ml-4 text-white test-xl font-bold">
-    {{$slot}} >
+<div class="p-3 " style="background-color:#d71703c4">
+    <div class="ml-4 text-white test-4xl  graphik-font">
+    {{$slot}}  >
 </div>
 </div>

@@ -2,7 +2,7 @@
 
 <x-header-destination :destination="$destination"/>
 <x-description-destination>{!!$destination->description!!}</x-description-destination>
-
+<div class="background-pattern">
 @isset($destination->locations['hotel'])
 <x-title-destination>Places to stay</x-title-destination>
 <x-caroussel-destination :items="$destination->locations['hotel']" name="hotel">  
@@ -24,7 +24,7 @@
 <x-title-destination>Nigthlife</x-title-destination>
 <x-caroussel-destination :items="$destination->locations['nightlife']" name="nightlife"></x-caroussel-destination>
 @endisset
-
+</div>
  <!-- Download PDF button -->
  @if($destination->pdf_path)
  <div style="background: linear-gradient(to bottom, #002b4a 0%, #004578 15%, #004578 15%); padding:30px;">

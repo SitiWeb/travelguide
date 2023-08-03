@@ -20,8 +20,9 @@ class VenuesController extends Controller
         foreach($venues as $venue){
             $locations[$venue->destination->city][$venue->activity_type][] = $venue;
         }
+        $destinations = Destination::all();
   
-        return view('venues.index', compact('locations'));
+        return view('venues.index', compact('locations','destinations'));
     }
 
     /**

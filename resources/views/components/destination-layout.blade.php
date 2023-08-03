@@ -7,8 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    
     <!-- Fonts -->
+
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -19,6 +20,7 @@
     
 
     <STYLE>
+        
         @font-face {
             font-family: IqbalCamel;
             src: url("{{ url('storage/CAMEL-BOLD.ttf') }}");
@@ -45,6 +47,9 @@
 
         .bg-footer-image {
             background-image:url('{{ url(' storage/Footer4x.png') }}');
+        }
+        .background-pattern{
+            background-image:url('{{ url('storage/pattern.svg') }}');
         }
     </STYLE>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
