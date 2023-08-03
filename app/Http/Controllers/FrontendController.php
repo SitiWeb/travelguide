@@ -33,7 +33,7 @@ class FrontendController extends Controller
         foreach($destination->venues as $venue){
             $venues[$venue->activity_type][] = $venue; 
         }
-        
+         
         return view('frontend.destination',  compact('destination', 'venues'));
     }
 
