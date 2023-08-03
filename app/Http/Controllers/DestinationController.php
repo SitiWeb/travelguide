@@ -57,6 +57,7 @@ class DestinationController extends Controller
             $imagePath = $request->file('image')->store('images', 'public'); // Change the storage path as per your requirement
             // Save the image path to the destination
             $destination->image_path = $imagePath;
+            $destination->save();
         }
         // Handle PDF upload if a new PDF file is provided
         if ($request->hasFile('pdf') && $request->file('pdf')->isValid()) {

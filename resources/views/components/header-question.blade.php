@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-4">
+<div {{ $attributes->merge(['class' => 'grid grid-cols-4 gap-4 mb-4']) }}>
   <div class="col-span-1">
     <!-- Content for the first column (1/4 width) -->
     <x-plane/>

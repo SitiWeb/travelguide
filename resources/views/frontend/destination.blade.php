@@ -1,5 +1,5 @@
 <x-destination-layout>
-    <div class="slidersssssss" id="{{strtolower('teeeeest')}}" data-id="{{strtolower('teeeeest')}}">
+    <div class="slider-top" >
         <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     @foreach($destinations as $destination)
@@ -27,7 +27,7 @@ const allSliders = document.querySelectorAll('.swiper');
 
 // Loop over all of the fetched sliders and apply Swiper on each one.
 allSliders.forEach(slider => buildSwiperSlider(slider));
-new Swiper(`.slidersssssss`, {
+new Swiper(`.slider-top`, {
       loop : true,
   });
 </script>

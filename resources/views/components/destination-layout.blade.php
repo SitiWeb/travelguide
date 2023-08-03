@@ -59,7 +59,7 @@
         <!-- Page Content -->
         <main>
             <div class="">
-                <div class="max-w-7xl mx-auto">
+                <div class=" sm:max-w-2xl  mx-auto">
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm">
                         <div class="text-gray-900 dark:text-gray-100">
                             {{ $slot }}

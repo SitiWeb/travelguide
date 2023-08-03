@@ -1,3 +1,7 @@
+@props(['slot2', 'background' =>  url('storage/Footer4x.png')])
+@php
+$route = request()->route()->getName();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -5,12 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Travelguide') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <STYLE>
+        <style>
             @font-face {
                 font-family: IqbalCamel;
                 src: url("{{ url('storage/CAMEL-BOLD.ttf') }}");
@@ -35,9 +39,11 @@
                 font-family: Graphik-bold;
             }
             .bg-footer-image {
-                background-image:url('{{ url('storage/Footer4x.png') }}');
+                background-image:url('{{ $background }}');
+                transition: background 1s linear;
             }
-        </STYLE>
+            
+        </style>
         <!-- Scripts -->
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -47,15 +53,21 @@
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
-    <body class="font-sans text-gray-900 antialiased background-blue-camel bg-footer-image bg-no-repeat bg-contain bg-bottom" >
+    <body class="page-{{ str_replace('.', '-', $route) }} font-sans text-gray-900 antialiased bg-white flex justify-center" >
  
 
-        <div class="min-h-screen flex flex-col pt-24 items-center "  >
+        <div class="border min-h-screen w-full sm:max-w-2xl flex flex-col justify-between py-24 items-center background-blue-camel bg-footer-image bg-cover bg-no-repeat bg-bottom md:bg-center lg:bg-center" >
          
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 sm:rounded-lg">
+            <div class=" mt-6 px-6 py-4 sm:rounded-lg ">
                 {{ $slot }}
             </div>
+            
+            @isset($slot2)
+            <div class="mt-6 px-6 py-4 sm:rounded-lg">
+                @php echo  $slot2 @endphp
+            </div>
+            @endisset
 
         </div>
     </body>

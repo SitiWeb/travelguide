@@ -2,7 +2,7 @@
 <x-header-question/>
 
 <div class="steps-wrapper">
-<x-steps active="{{$question->id}}" />
+<x-steps class="mb-4" active="{{$question->id}}" />
 </div>
 
 <form id="questionForm" method="post">
@@ -18,7 +18,19 @@
     $('input[type="radio"]').on('change', function() {
         saveResponse(); // Call saveResponse() when a radio button is selected
     });
+    var images = [];
+    function preload() {
+        for (var i = 0; i < arguments.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload.arguments[i];
+        }
+    }
 
+    //-- usage --//
+    preload(
+        "http://localhost/travelguide/public/storage/images/nvtdDiwiIyLrmNIwYaE1wW4ujjJKqnPlesgeKcEx.png",
+
+    )
     function saveResponse() {
         let formData = $('#questionForm').serialize();
 
@@ -33,6 +45,9 @@
                         window.location.href = response.redirect_url;
                     }
                     else{
+                        if (response.image_url){
+                            $('.bg-footer-image').css('background-image', 'url(' + response.image_url + ')');
+                        }
                         jQuery('.steps-wrapper').html(response.steps_html);
                         jQuery('.card-wrapper').html(response.question_html);                 
                      

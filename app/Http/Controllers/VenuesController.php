@@ -16,6 +16,7 @@ class VenuesController extends Controller
     {
        
         $venues = Venue::with('destination')->get();
+        $locations = [];
         foreach($venues as $venue){
             $locations[$venue->destination->city][$venue->activity_type][] = $venue;
         }

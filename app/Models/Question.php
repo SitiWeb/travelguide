@@ -17,5 +17,6 @@ class Question extends Model
         'question',
         'option_1',
         'option_2',
+        'image_path'
     ];
 }

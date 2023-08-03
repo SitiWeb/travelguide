@@ -28,7 +28,7 @@ Route::get('/terms', function () { return view('frontend.terms'); })->name('fron
 
 // Route for saving responses
 Route::post('/save-response', [FrontendController::class, 'saveResponse'])->name('save_response');
-Route::get('/questions/{id}', [FrontendController::class, 'showQuestion'] )->name('render');
+
 Route::post('/clear-responses', [FrontendController::class, 'clearResponses'])->name('clear_responses');
 
 Route::get('/', function () {   return view('welcome');});

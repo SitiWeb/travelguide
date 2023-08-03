@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="container mx-auto mt-4">
-        <form action="{{ route('questions.store') }}" method="POST" class="space-y-4">
+        <form action="{{ route('questions.store') }}" method="POST" class="space-y-4" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="question" class="block font-semibold mb-1">Question</label>
@@ -27,6 +27,15 @@
                 @error('option_2')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
+            </div>
+            <div>
+                <label for="image" class="block font-semibold mb-1">Upload background Image</label>
+                <input type="file" name="image" id="image" accept="image/*" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('image') border-red-500 @enderror">
+                @error('image')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+                <p class="mt-2 text-sm text-gray-500">
+     
             </div>
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Submit</button>
         </form>

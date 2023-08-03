@@ -120,7 +120,16 @@ class FrontendController extends Controller
             $step = $question->id;
             $option_1 = $question->option_1;
             $option_2 = $question->option_2;
+            if (isset($question->image_path) && !empty($question->image_path)){
+                
+                $image = asset('storage/' . $question->image_path);
+            }
+            else{
+                $image=false;
+            }
+
             $question = $question->question;
+            
         }
         
         $questionView = View::make('components.cards', compact('question', 'option_1','option_2','step'));
@@ -132,6 +141,7 @@ class FrontendController extends Controller
         
          // Return the JSON response with the status and the HTML for the "question" view
          return new JsonResponse([
+            'image_url' => $image, 
              'status' => 'success',
              'question_html' => $questionHtml,
              'question_id' => $nextQuestionId,
@@ -149,6 +159,6 @@ class FrontendController extends Controller
         Session::forget('current_question_id');
 
         // Redirect back to the first question or any other desired page
-        return redirect()->route('render', 1);
+        return redirect()->route('questions');
     }
 }

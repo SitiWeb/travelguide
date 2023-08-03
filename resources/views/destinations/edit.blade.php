@@ -54,6 +54,12 @@
                 @error('image')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
+                <p class="mt-2 text-sm text-gray-500">
+                @if($destination->image_path)
+
+                <a href="{{ asset('storage/' . $destination->image_path) }}" class="text-blue-600" >{{substr($destination->image_path, 5)}}</a>    <br>
+                @endif
+                Leave this field empty if you don't want to change the image.</p>
             </div>
 
             <!-- Add PDF upload field -->
