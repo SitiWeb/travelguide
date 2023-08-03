@@ -14,9 +14,13 @@ class VenuesController extends Controller
      */
     public function index()
     {
-        $destinations = Destination::all();
-        $venues = Venue::all();
-        return view('venues.index', compact('venues', 'destinations'));
+       
+        $venues = Venue::with('destination')->get();
+        foreach($venues as $venue){
+            $locations[$venue->destination->city][$venue->activity_type][] = $venue;
+        }
+  
+        return view('venues.index', compact('locations'));
     }
 
     /**

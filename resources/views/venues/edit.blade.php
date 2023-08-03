@@ -52,21 +52,21 @@
             </div>
             <div>
                 <label for="address" class="block font-semibold mb-1">Address</label>
-                <input type="text" name="address" id="address" value="{{ $venue->address }}" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('address') border-red-500 @enderror" required>
+                <input type="text" name="address" id="address" value="{{ $venue->address }}" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('address') border-red-500 @enderror" >
                 @error('address')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
             <div>
                 <label for="url" class="block font-semibold mb-1">URL</label>
-                <input type="text" name="url" id="url" value="{{ $venue->url }}" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('url') border-red-500 @enderror" required>
+                <input type="text" name="url" id="url" value="{{ $venue->url }}" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('url') border-red-500 @enderror" >
                 @error('url')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
             <div>
                 <label for="price" class="block font-semibold mb-1">Price</label>
-                <input type="text" name="price" id="price" value="{{ $venue->price }}" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('price') border-red-500 @enderror" required>
+                <input type="text" name="price" id="price" value="{{ $venue->price }}" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('price') border-red-500 @enderror" >
                 @error('price')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
