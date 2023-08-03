@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             AnswersTableSeeder::class,
             QuestionsSeeder::class,
             DestinationsTableSeeder::class,
+            VenuesTableSeeder::class,
             
         ]);
     }

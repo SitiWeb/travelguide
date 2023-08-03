@@ -15,6 +15,8 @@ class FrontendController extends Controller
     public function render_question($id = false){
         
         $question = (Question::find($id));
+        
+    
         return view('frontend.prepared', compact('question'));
     }
 
@@ -47,7 +49,14 @@ class FrontendController extends Controller
 
     public function showQuestion($id = false)
     {
+        $images = Question::pluck('image_path')->toArray();
+        $new_images = [];
+        foreach($images as $image){
+            $new_images[] = asset('storage/' . $image);
+        }
+        $images = $new_images;
         if (!$id){
+            
             $id = 1;
         }
 
@@ -69,7 +78,7 @@ class FrontendController extends Controller
             return view('frontend.prepared', compact('question'));
         }
 
-        return view('frontend.prepared', compact('question'));
+        return view('frontend.prepared', compact('question','images'));
     }
 
     public function saveResponse(Request $request)

@@ -25,6 +25,9 @@
                 font-family: Graphik-regular;
                 src: url("{{ url('storage/GRAPHIK-LIGHT.ttf') }}");
             }
+            body{
+                font-family: Graphik-bold;
+            }
 
             .camel-font {
                 font-family: IqbalCamel;

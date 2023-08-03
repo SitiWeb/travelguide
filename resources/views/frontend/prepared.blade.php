@@ -28,7 +28,8 @@
 
     //-- usage --//
     preload(
-        "http://localhost/travelguide/public/storage/images/nvtdDiwiIyLrmNIwYaE1wW4ujjJKqnPlesgeKcEx.png",
+
+        "{!! implode('","', $images) !!}"
 
     )
     function saveResponse() {
