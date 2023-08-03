@@ -98,7 +98,7 @@ class QuestionController extends Controller
             $question->image_path = $imagePath;
             $question->save();
         }
-        return redirect()->route('questions.show', $question->id)->with('success', 'Destination updated successfully.');
+        return redirect()->route('questions.edit', $question->id)->with('success', 'Destination updated successfully.');
     }
 
     /**

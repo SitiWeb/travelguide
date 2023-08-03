@@ -13,13 +13,13 @@
             </div>
             <div class="container mx-auto mt-4 grid gap-4 grid-cols-4">
             @foreach($answerss as $answer)
-            <a href="{{ route('answers.show', $answer->id) }}" class="text-blue-500">
+            <a href="{{ route('answers.edit', $answer->id) }}" class="text-blue-500">
                 <table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
                       <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Question</th>
-                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Option 1</th>
-                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Option 2</th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">1</th>
+                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">2</th>
                     </tr>
                   </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
@@ -86,9 +86,9 @@
             @endforeach
 </div>
         @endforeach
+        <div>
+            <a href="{{ route('answers.create') }}" class="toggle-button rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Create new</a>
+        </div>
+</div>
 
-</div>
-<div>
-    <a href="{{ route('answers.create') }}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Create new</a>
-</div>
 </x-app-layout>

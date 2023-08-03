@@ -113,7 +113,7 @@ class VenuesController extends Controller
 
         $venue->update($request->only('title', 'description', 'address', 'url', 'price', 'activity_type','destination_id'));
 
-        return redirect()->route('venues.show', $venue->id)->with('success', 'Venue updated successfully.');
+        return redirect()->route('venues.edit', $venue->id)->with('success', 'Venue updated successfully.');
     }
 
     /**

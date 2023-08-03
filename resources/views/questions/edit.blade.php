@@ -5,7 +5,10 @@
         </h2>
     </x-slot>
     <div class="container mx-auto mt-4">
+        <x-success/>
+        <x-delete-button>{{route('questions.destroy', $question->id)}}</x-delete-button>
         <form action="{{ route('questions.update', $question->id) }}" method="POST" class="space-y-4" enctype="multipart/form-data">
+         
             @csrf
             @method('PUT')
             <div>
@@ -42,7 +45,7 @@
                 @endif
                 Leave this field empty if you don't want to change the image.</p>
             </div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Update</button>
+            <x-primary-button>Update</x-primary-button>
         </form>
     </div>
 </x-app-layout>

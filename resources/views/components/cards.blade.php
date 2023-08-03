@@ -1,12 +1,12 @@
 @props(['step', 'question', 'option_1', 'option_2'])
 <div class="card-container relative mx-auto w-80 h-96">
     <!-- Card 1 - Light Blue -->
-    <div id="card-1" class="overflow-hidden background-blue-camel-alt  absolute p-6 rounded-lg w-full card h-80" style="transform: translateX(-55%) translateY(-45%) rotate(-10deg)">
+    <div id="card-1" class="overflow-hidden background-blue-camel-alt  absolute p-6 rounded-lg  card h-80" style="transform: translateX(-55%) translateY(-45%) rotate(-10deg);width:85%">
   
     </div>
     
     <!-- Card 2 - Yellow -->
-    <div id="card-2" class="overflow-hidden background-blue-camel-yellow absolute p-6 rounded-lg w-full card h-80" style="transform: translateX(-45%) translateY(-50%) rotate(10deg)">
+    <div id="card-2" class="overflow-hidden background-blue-camel-yellow absolute p-6 rounded-lg w-full card h-80" style="transform: translateX(-45%) translateY(-50%) rotate(10deg);width:75%">
 
     </div>
     

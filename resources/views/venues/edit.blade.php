@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
     <div class="container mx-auto mt-4">
- 
+        <x-success/>
+        <x-delete-button>{{route('venues.destroy', $venue->id)}}</x-delete-button>
         <form action="{{ route('venues.update', $venue->id) }}" method="POST" class="space-y-4">
             @csrf
             @method('PUT')
@@ -73,7 +74,11 @@
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Update</button>
+            <x-primary-button>Update</x-primary-button>
+
         </form>
+        
+        
+        
     </div>
 </x-app-layout>

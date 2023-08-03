@@ -80,7 +80,7 @@ class TypesController extends Controller
 
         $type->update($request->only('name'));
 
-        return redirect()->route('types.show', $type->id)->with('success', 'Type updated successfully.');
+        return redirect()->route('types.edit', $type->id)->with('success', 'Type updated successfully.');
     }
 
     /**

@@ -134,7 +134,7 @@ class DestinationController extends Controller
             $destination->save();
         }
 
-        return redirect()->route('destinations.show', $destination->id)->with('success', 'Destination updated successfully.');
+        return redirect()->route('destinations.edit', $destination->id)->with('success', 'Destination updated successfully.');
     }
 
     /**

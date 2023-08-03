@@ -71,6 +71,13 @@
     /* Add your styling for the hidden divs here */
 }
 
+@media only screen and (min-width: 420px) {
+    .page-end .bg-footer-image {
+        background-size: cover!important;
+        background-position: 40%;
+    }
+}
+
 
 /* Customize step circle size and styles */
 

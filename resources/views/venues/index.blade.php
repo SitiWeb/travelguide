@@ -25,7 +25,7 @@
                    @php
                     $current = $venue->destination;
                    @endphp
-                <p class="text-gray-500"><a href="{{ route('venues.show', $venue->id) }}" class="text-blue-500">{{ $venue->title }}</a></p>
+                <p class="text-gray-500"><a href="{{ route('venues.edit', $venue->id) }}" class="text-blue-500">{{ $venue->title }}</a></p>
                     
                     
                 @endforeach
@@ -44,9 +44,7 @@
   
         @endforeach
     </div>
-    <div>
-        <a href="{{ route('venues.create') }}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Create new</a>
-    </div>
+   
         <script>function toggleDiv(divId) {
             const div = document.getElementById(divId);
             if (div) {

@@ -101,7 +101,7 @@ class AnswerController extends Controller
 
         $answer->update($request->only('type_id', 'question_1', 'question_2', 'question_3', 'question_4', 'question_5'));
 
-        return redirect()->route('answers.show', $answer->id)->with('success', 'Answer updated successfully.');
+        return redirect()->route('answers.edit', $answer->id)->with('success', 'Answer updated successfully.');
     }
 
     /**
