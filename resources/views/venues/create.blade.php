@@ -16,6 +16,13 @@
                 @enderror
             </div>
             <div>
+                <label for="description" class="block font-semibold mb-1">Description</label>
+                <textarea name="description" id="description" rows="4" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('description') border-red-500 @enderror" required></textarea>
+                @error('description')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
                 <label for="destination_id" class="block font-semibold mb-1">Select Destination</label>
                 <select name="destination_id" id="destination_id" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('destination_id') border-red-500 @enderror" required>
                     <option value="" selected disabled>Select a destination</option>
@@ -32,9 +39,10 @@
                 <label for="activity_type" class="block text-gray-700 text-sm font-bold mb-2">Select Activity Type:</label>
                 <select name="activity_type" id="activity_type" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
                     <option value="" selected disabled>Select an option</option>
-                    <option value="Restaurant">Restaurant</option>
-                    <option value="Hotel">Hotel</option>
-                    <option value="Activity">Activity</option>
+                    <option value="restaurant">Place to eat</option>
+                    <option value="hotel">Place to stay</option>
+                    <option value="activity">Thing to do</option>
+                    <option value="nightlife">Nightlife</option>
                 </select>
             </div>
             <div>
