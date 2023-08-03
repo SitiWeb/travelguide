@@ -43,6 +43,7 @@
                     <option value="hotel">Place to stay</option>
                     <option value="activity">Thing to do</option>
                     <option value="nightlife">Nightlife</option>
+                    <option value="get_around">Getting around</option>
                 </select>
             </div>
             <div>

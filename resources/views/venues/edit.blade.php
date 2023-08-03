@@ -48,6 +48,7 @@
                     <option value="hotel" @if($venue->activity_type === 'hotel') selected @endif>Place to stay</option>
                     <option value="activity" @if($venue->activity_type === 'activity') selected @endif>Activity</option>
                     <option value="nightlife" @if($venue->activity_type === 'nightlife') selected @endif>Nightlife</option>
+                    <option value="get_around" @if($venue->activity_type === 'get_around') selected @endif>Getting around</option>
                 </select>
             </div>
             <div>
