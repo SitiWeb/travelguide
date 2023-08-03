@@ -27,14 +27,22 @@ class FrontendController extends Controller
     }
 
     public function destination($id){
-        $destination = (Destination::with('venues')->find($id));
-  
-        $venues = [];
-        foreach($destination->venues as $venue){
-            $venues[$venue->activity_type][] = $venue; 
+        $destination_orig = (Destination::with('venues')->find($id));
+        $destinations = (Destination::with('venues')->where('type_id',$destination_orig->type_id)->get());
+        
+        $new_destinations = [];
+        
+        foreach($destinations as $destination){
+            $venues = [];
+            foreach($destination->venues as $venue){
+                $venues[$venue->activity_type][] = $venue; 
+            }
+            $destination->locations = $venues;
+            $new_destinations[] = $destination;
         }
+        $destinations = $new_destinations;
          
-        return view('frontend.destination',  compact('destination', 'venues'));
+        return view('frontend.destination',  compact('destinations'));
     }
 
     public function showQuestion($id = false)
