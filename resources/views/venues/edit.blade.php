@@ -28,10 +28,11 @@
                 <select name="destination_id" id="destination_id" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('destination_id') border-red-500 @enderror" required>
                     <option value="" selected disabled>Select a destination</option>
                     @foreach($destinations as $destination)
+                  
                         @if ($venue->destination_id == $destination->id)
-                        <option value="{{ $destination->id }}">{{ $destination->city }}, {{ $destination->country }}</option>
-                        @else
                         <option selected value="{{ $destination->id }}">{{ $destination->city }}, {{ $destination->country }}</option>
+                        @else
+                        <option  value="{{ $destination->id }}">{{ $destination->city }}, {{ $destination->country }}</option>
                         @endif
                     @endforeach
                 </select>
