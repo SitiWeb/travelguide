@@ -25,6 +25,12 @@ class FrontendController extends Controller
         
     }
 
+    public function destination($id){
+        $destination = (Destination::find($id));
+
+        return view('frontend.destination',  compact('destination'));
+    }
+
     public function showQuestion($id = false)
     {
         if (!$id){
@@ -37,8 +43,16 @@ class FrontendController extends Controller
 
         // Redirect to a "thank you" page if there are no more questions to display
         if (!$question) {
-            return redirect()->route('end');
-           
+            $user_responses = Session::get('destination_id');
+       
+            if ($user_responses){
+                return redirect()->route('end',['id' => $user_responses]);
+            }
+            // Clear user responses and reset current_question_id in the session
+            Session::forget('user_responses');
+            Session::forget('current_question_id');
+
+            return view('frontend.prepared', compact('question'));
         }
 
         return view('frontend.prepared', compact('question'));
@@ -68,7 +82,7 @@ class FrontendController extends Controller
             $answer = $answerModel->get_type($user_responses);
 
             $randomDestination = Destination::where('type_id',  $answer->type->id)->inRandomOrder()->first();
-            Userresponse::create(
+            $reponse = Userresponse::create(
                 [
                     'userresponse' => json_encode($user_responses),
                     'ip' => request()->ip(),
@@ -76,11 +90,12 @@ class FrontendController extends Controller
                     'destination' => $randomDestination->id,
                 ]
             );
+            Session::put('destination_id',  $reponse->id);
 
             return new JsonResponse([
                 'status' => 'success',
                 'answer' => $answer,
-                'redirect_url' => route('end'),
+                'redirect_url' => route('end',['id' => $reponse->id]),
                 'user_responses' => Session::get('user_responses')
             ]);
         }

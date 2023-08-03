@@ -48,6 +48,14 @@
                 @enderror
             </div>
 
+            <div>
+                <label for="image" class="block font-semibold mb-1">Upload Image</label>
+                <input type="file" name="image" id="image" accept="image/*" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('image') border-red-500 @enderror">
+                @error('image')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+            </div>
+
             <!-- Add PDF upload field -->
             <div>
                 <label for="pdf" class="block font-semibold mb-1">Upload PDF</label>

@@ -19,32 +19,21 @@ use App\Http\Controllers\AnswerController;
 |
 */
 
-Route::get('/start', function () {
-    return view('frontend.start');
-})->name('start');
-Route::get('/questions', function () {
-    return view('frontend.questions');
-})->name('questions');
-
+Route::get('/start', function () { return view('frontend.start');})->name('start');
+Route::get('/questions', function () { return view('frontend.questions');})->name('questions');
+Route::get('/destination/{id}', [FrontendController::class, 'destination'] )->name('frontend.destinations');
 Route::get('/questions', [FrontendController::class, 'showQuestion'] )->name('questions');
-
 Route::get('/end/{id}', [FrontendController::class, 'end'] )->name('end');
-Route::get('/terms', function () {
-    return view('frontend.terms');
-})->name('frontend.terms');
+Route::get('/terms', function () { return view('frontend.terms'); })->name('frontend.terms');
 
 // Route for saving responses
 Route::post('/save-response', [FrontendController::class, 'saveResponse'])->name('save_response');
 Route::get('/questions/{id}', [FrontendController::class, 'showQuestion'] )->name('render');
 Route::post('/clear-responses', [FrontendController::class, 'clearResponses'])->name('clear_responses');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {   return view('welcome');});
 
-Route::get('/backend', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/backend', function () {   return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 

@@ -13,7 +13,8 @@ class Destination extends Model
         'country',
         'description',
         'type_id',
-        'pdf_path'
+        'pdf_path',
+        'image_path'
     ];
 
     protected $table = 'destinations';

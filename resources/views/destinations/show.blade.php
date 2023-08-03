@@ -21,6 +21,14 @@
         <div>
             <p><span class="font-semibold">Type:</span> {{ $destination->type->name }}</p>
         </div>
+
+         <!-- Display the image if image_path is not empty -->
+         @if($destination->image_path)
+            <div>
+                <p><span class="font-semibold">Image:</span></p>
+                <img src="{{ asset('storage/' . $destination->image_path) }}" alt="Destination Image" class="w-full rounded-md mt-2">
+            </div>
+        @endif
             <!-- Download PDF button -->
             @if($destination->pdf_path)
             <div class="block mt-2">

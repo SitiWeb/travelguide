@@ -1,0 +1,4 @@
+<div style="background: linear-gradient(to bottom, #002b4a 0%, #004578 15%, #004578 15%); padding:30px;">
+<div class="shadow rounded-3xl bg-white p-4 camel-font" style="color:#004578">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+</div>

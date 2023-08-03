@@ -49,9 +49,26 @@ class DestinationController extends Controller
             'description' => 'required',
             'type_id' => 'required',
             'pdf' => 'nullable|file|mimes:pdf|max:10000', // Optional: Change the max file size as per your requirement
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust the maximum file size and allowed image types as needed
         ]);
+        $destination = Destination::create($request->only('city', 'country', 'description', 'type_id'));
+        // Handle image upload if a new image file is provided
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $imagePath = $request->file('image')->store('images', 'public'); // Change the storage path as per your requirement
+            // Save the image path to the destination
+            $destination->image_path = $imagePath;
+        }
+        // Handle PDF upload if a new PDF file is provided
+        if ($request->hasFile('pdf') && $request->file('pdf')->isValid()) {
+            $originalFileName = $request->file('pdf')->getClientOriginalName();
+            $pdfPath = $request->file('pdf')->storeAs('pdfs', $originalFileName, 'public'); // Change the storage path as per your requirement
 
-        Destination::create($request->only('city', 'country', 'description', 'type_id'));
+            // Save the PDF path to the destination
+            $destination->pdf_path = $pdfPath;
+            $destination->save();
+        }
+
+        
 
         return redirect()->route('destinations.index')->with('success', 'Question created successfully.');
     }
@@ -92,6 +109,7 @@ class DestinationController extends Controller
             'description' => 'required',
             'type_id' => 'required',
             'pdf' => 'nullable|file|mimes:pdf|max:10000', // Optional: Change the max file size as per your requirement
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust the maximum file size and allowed image types as needed
         ]);
 
         $destination = Destination::findOrFail($id);
@@ -99,14 +117,14 @@ class DestinationController extends Controller
         $destination->update($request->only('city', 'country', 'description', 'type_id'));
 
          // Handle PDF upload if a new PDF file is provided
-if ($request->hasFile('pdf') && $request->file('pdf')->isValid()) {
-    $originalFileName = $request->file('pdf')->getClientOriginalName();
-    $pdfPath = $request->file('pdf')->storeAs('pdfs', $originalFileName, 'public'); // Change the storage path as per your requirement
+        if ($request->hasFile('pdf') && $request->file('pdf')->isValid()) {
+            $originalFileName = $request->file('pdf')->getClientOriginalName();
+            $pdfPath = $request->file('pdf')->storeAs('pdfs', $originalFileName, 'public'); // Change the storage path as per your requirement
 
-    // Save the PDF path to the destination
-    $destination->pdf_path = $pdfPath;
-    $destination->save();
-}
+            // Save the PDF path to the destination
+            $destination->pdf_path = $pdfPath;
+            $destination->save();
+        }
 
         return redirect()->route('destinations.show', $destination->id)->with('success', 'Destination updated successfully.');
     }
