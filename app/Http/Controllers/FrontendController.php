@@ -21,6 +21,7 @@ class FrontendController extends Controller
     public function end($id){
         $response = (Userresponse::find($id));
         $destination = Destination::where('id',$response->destination)->first();
+        
         return view('frontend.end',  compact('destination'));
         
     }

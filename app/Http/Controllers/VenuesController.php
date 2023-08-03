@@ -41,7 +41,7 @@ class VenuesController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
-            'description' => 'text',
+            'description' => 'string',
             'address' => 'max:255',
             'url' => 'max:255',
             'price' => 'max:255',

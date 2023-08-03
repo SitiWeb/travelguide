@@ -125,6 +125,13 @@ class DestinationController extends Controller
             $destination->pdf_path = $pdfPath;
             $destination->save();
         }
+        // Handle image upload if a new image file is provided
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $imagePath = $request->file('image')->store('images', 'public'); // Change the storage path as per your requirement
+            // Save the image path to the destination
+            $destination->image_path = $imagePath;
+            $destination->save();
+        }
 
         return redirect()->route('destinations.show', $destination->id)->with('success', 'Destination updated successfully.');
     }
