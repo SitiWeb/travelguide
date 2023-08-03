@@ -62,7 +62,7 @@ $route = request()->route()->getName();
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
-    <body class="page-{{ str_replace('.', '-', $route) }} font-sans text-gray-900 antialiased bg-white flex justify-center" >
+    <body class="page-{{ str_replace('.', '-', $route) }} font-sans text-gray-900 antialiased bg-white flex justify-center overflow-hidden" >
  
 
         <div style="min-height:100dvh" class="sm:border min-h-screen w-full sm:max-w-2xl flex flex-col justify-between lg:py-24 sm:pt-6 sm:pb-12 items-center background-blue-camel bg-footer-image bg-cover bg-no-repeat bg-bottom lg:bg-center" >
