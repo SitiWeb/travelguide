@@ -41,6 +41,7 @@ class VenuesController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
+            'description' => 'text',
             'address' => 'max:255',
             'url' => 'max:255',
             'price' => 'max:255',
@@ -51,6 +52,7 @@ class VenuesController extends Controller
         // Create the venue with the destination_id included
         Venue::create([
             'title' => $request->input('title'),
+            'description' => $request->input('description'),
             'address' => $request->input('address'),
             'url' => $request->input('url'),
             'price' => $request->input('price'),
@@ -92,15 +94,18 @@ class VenuesController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
+            'description' => 'string',
             'address' => 'max:255',
             'url' => 'max:255',
             'price' => 'max:255',
             'activity_type' => 'max:255',
+            'destination_id' => 'required|exists:destinations,id', // Validate destination_id and check if it exists in the destinations table
+            
         ]);
 
         $venue = Venue::findOrFail($id);
 
-        $venue->update($request->only('title', 'address', 'url', 'price', 'activity_type'));
+        $venue->update($request->only('title', 'description', 'address', 'url', 'price', 'activity_type','destination_id'));
 
         return redirect()->route('venues.show', $venue->id)->with('success', 'Venue updated successfully.');
     }

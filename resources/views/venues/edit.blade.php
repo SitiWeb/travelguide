@@ -17,6 +17,13 @@
                 @enderror
             </div>
             <div>
+                <label for="description" class="block font-semibold mb-1">Description</label>
+                <textarea name="description" id="description" rows="4" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('description') border-red-500 @enderror" required>{{ old('description', $venue->description) }}</textarea>
+                @error('description')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
                 <label for="destination_id" class="block font-semibold mb-1">Select Destination</label>
                 <select name="destination_id" id="destination_id" class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500 @error('destination_id') border-red-500 @enderror" required>
                     <option value="" selected disabled>Select a destination</option>
@@ -37,9 +44,10 @@
                 <label for="activity_type" class="block text-gray-700 text-sm font-bold mb-2">Select Activity Type:</label>
                 <select name="activity_type" id="activity_type" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
                     <option value="" selected disabled>Select an option</option>
-                    <option value="Restaurant" @if($venue->activity_type === 'Restaurant') selected @endif>Restaurant</option>
-                    <option value="Hotel" @if($venue->activity_type === 'Hotel') selected @endif>Hotel</option>
-                    <option value="Activity" @if($venue->activity_type === 'Activity') selected @endif>Activity</option>
+                    <option value="restaurant" @if($venue->activity_type === 'restaurant') selected @endif>Place to eat</option>
+                    <option value="hotel" @if($venue->activity_type === 'hotel') selected @endif>Place to stay</option>
+                    <option value="activity" @if($venue->activity_type === 'activity') selected @endif>Activity</option>
+                    <option value="nightlife" @if($venue->activity_type === 'nightlife') selected @endif>Nightlife</option>
                 </select>
             </div>
             <div>

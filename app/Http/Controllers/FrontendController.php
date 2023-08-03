@@ -26,9 +26,14 @@ class FrontendController extends Controller
     }
 
     public function destination($id){
-        $destination = (Destination::find($id));
-
-        return view('frontend.destination',  compact('destination'));
+        $destination = (Destination::with('venues')->find($id));
+  
+        $venues = [];
+        foreach($destination->venues as $venue){
+            $venues[$venue->activity_type][] = $venue; 
+        }
+        
+        return view('frontend.destination',  compact('destination', 'venues'));
     }
 
     public function showQuestion($id = false)
