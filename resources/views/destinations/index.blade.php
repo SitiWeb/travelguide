@@ -15,9 +15,18 @@
                     <span class="sr-only">{{ $destination->city }}</span>
                   </button>
                 </div>
-                <p class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">{{ $destination->country }}</p>
-                <p class="pointer-events-none block text-sm font-medium text-gray-500">{{ $destination->created_at->format('Y-m-d') }}</p>
-            </a>
+                <div class="flex items-center justify-between">
+                  <div>
+                <p class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">{{ $destination->city }}</p>
+                <p class="pointer-events-none block text-sm font-medium text-gray-500">{{ $destination->country }}</p>
+                  </div> 
+                <div>
+                    <p class="pointer-events-none block text-sm font-medium text-gray-500">{{$destination->type->name}}</p>
+                  
+                  </div>
+                </div>
+
+              </a>
               </li>
             
                 @endforeach

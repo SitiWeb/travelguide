@@ -65,15 +65,15 @@ $route = request()->route()->getName();
     <body class="page-{{ str_replace('.', '-', $route) }} font-sans text-gray-900 antialiased bg-white flex justify-center overflow-hidden" >
  
 
-        <div style="min-height:100dvh" class="sm:border  w-full sm:max-w-2xl flex flex-col justify-between lg:py-12 sm:pt-6 sm:pb-12 items-center background-blue-camel bg-footer-image bg-contain md:cover bg-no-repeat bg-bottom lg:bg-bottom" >
+        <div style="min-height:100dvh" class="sm:border  w-full sm:max-w-2xl flex flex-col justify-between lg:py-12 sm:pt-6 sm:pb-12 items-center background-blue-camel bg-footer-image bg-cover md:cover bg-no-repeat bg-bottom lg:bg-bottom" >
          
 
-            <div class=" mt-6 px-6 py-4 sm:rounded-lg ">
+            <div class=" mt-12 px-6 py-4 sm:rounded-lg ">
                 {{ $slot }}
             </div>
             
             @isset($slot2)
-            <div class="mt-6 px-6 py-4 sm:rounded-lg">
+            <div class="mb-6 px-6 py-4 sm:rounded-lg">
                 @php echo  $slot2 @endphp
             </div>
             @endisset
