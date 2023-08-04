@@ -8,7 +8,7 @@
       }
 
       .cls-1, .cls-2 {
-        fill: green;
+        fill: none;
       }
 
       .cls-2 {
@@ -16,8 +16,8 @@
       }
 
       .cls-3 {
-        fill: black;
-      } 
+        fill: green;
+      }
     </style>
   </defs>
   <g class="cls-2">

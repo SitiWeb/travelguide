@@ -51,6 +51,8 @@ class FrontendController extends Controller
             $new_destinations[] = $destination;
         }
         $destinations = $new_destinations;
+        shuffle($destinations);
+        
          
         return view('frontend.destination',  compact('destinations'));
     }

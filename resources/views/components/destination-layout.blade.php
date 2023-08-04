@@ -51,6 +51,7 @@
         .background-pattern{
             background-image:url('{{ url('storage/pattern.svg') }}');
         }
+
     </STYLE>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
