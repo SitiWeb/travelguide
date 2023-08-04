@@ -49,7 +49,7 @@
             background-image:url('{{ url(' storage/Footer4x.png') }}');
         }
         .background-pattern{
-            background-image:url('{{ url('storage/pattern.svg') }}');
+            background-image:url('{{ url('storage/Patroon.svg') }}');
         }
 
     </STYLE>
