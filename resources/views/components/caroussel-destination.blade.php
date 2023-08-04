@@ -1,15 +1,13 @@
 @props(['items' , 'name'])
 
 
-<div class="block swiper" style="background-color:#ffed00d6" id="{{$name}}_slider" data-id="{{$name}}_slider">
- <!-- Additional required wrapper -->
- <div class="swiper-wrapper">
-    @foreach($items as $index => $item)
-
-    <div class="swiper-slide">
-        <x-card :item="$item" index="{{$index + 1}}"></x-card>
+<div class="block swiper pattern-bg" style="background-color:#ffe7139c" id="{{$name}}_slider" data-id="{{$name}}_slider">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        @foreach($items as $index => $item)
+        <div class="swiper-slide">
+            <x-card :item="$item" index="{{$index + 1}}"></x-card>
         </div>
-    @endforeach
+        @endforeach
     </div>
-    <!-- You must be the change you wish to see in the world. - Mahatma Gandhi -->
 </div>
