@@ -139,6 +139,7 @@ class FrontendController extends Controller
             $step = $question->id;
             $option_1 = $question->option_1;
             $option_2 = $question->option_2;
+
             if (isset($question->image_path) && !empty($question->image_path)){
                 
                 $image = asset('storage/' . $question->image_path);
