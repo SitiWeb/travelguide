@@ -3,7 +3,7 @@ $button =  Blade::render('<x-button class="text-white" url="'.route('frontend.de
 $slot2= $button;
 @endphp
 
-<x-guest-layout slot2="{!!$slot2!!}" background="{{url('storage/Footer7-4x.png')}}">
+<x-guest-layout slot2="{!!$slot2!!}" background="{{url('storage/Footer4x.png')}}">
 <form action="{{ route('clear_responses') }}" method="post" class="flex justify-center">
     @csrf
     <button type="submit"><x-plane class="mb-4 text-center" width="w-14"/></button>
