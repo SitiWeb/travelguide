@@ -22,6 +22,14 @@ class FrontendController extends Controller
 
     public function end($id){
         $response = (Userresponse::find($id));
+        if (!$response){
+            // Clear user responses and reset current_question_id in the session
+            Session::forget('user_responses');
+            Session::forget('current_question_id');
+
+            // Redirect back to the first question or any other desired page
+            return redirect()->route('questions');
+        }
         $destination = Destination::where('id',$response->destination)->first();
         
         return view('frontend.end',  compact('destination'));
