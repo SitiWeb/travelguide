@@ -72,10 +72,10 @@
 }
 
 @media only screen and (min-width: 420px) {
-    /* .page-end .bg-footer-image {
+    .page-end .bg-footer-image {
         background-size: cover!important;
         background-position: 40%;
-    } */
+    }
 }
 
 
