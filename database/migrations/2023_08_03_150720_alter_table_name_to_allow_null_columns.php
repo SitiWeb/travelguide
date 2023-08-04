@@ -28,9 +28,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('venues', function (Blueprint $table) {
-            $table->string('address')->nullable(false)->change();
-            $table->string('url')->nullable(false)->change();
-            $table->string('price')->nullable(false)->change();
+            // Revert back to the original non-nullable columns
+           
         });
     }
 };
