@@ -31,4 +31,4 @@ new Swiper(`.slider-top`, {
       loop : true,
   });
 </script>
-</x-new-layout>
+</x-destination-layout>

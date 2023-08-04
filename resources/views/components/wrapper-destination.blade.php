@@ -24,11 +24,11 @@
 <x-title-destination>Night life</x-title-destination>
 <x-caroussel-destination :items="$destination->locations['nightlife']" name="nightlife"></x-caroussel-destination>
 @endisset
-{{dd()}}
 
-@isset($destination->locations['getting_around'])
+
+@isset($destination->locations['get_around'])
 <x-title-destination>Getting around</x-title-destination>
-<x-caroussel-destination :items="$destination->locations['getting_around']" name="getting_around"></x-caroussel-destination>
+<x-caroussel-destination :items="$destination->locations['get_around']" name="get_around"></x-caroussel-destination>
 @endisset
 </div>
  <!-- Download PDF button -->
