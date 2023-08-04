@@ -30,7 +30,7 @@ $route = request()->route()->getName();
 
             @font-face {
                 font-family: Graphik-bold;
-                src: url("{{ url('storage/GRAPHIK-BOLD.ttf') }}");
+                src: url("{{ url('storage/Graphik-Bold.woff2') }}");
             }
 
             @font-face {
@@ -44,6 +44,7 @@ $route = request()->route()->getName();
             }
 
             .graphik-font {
+                line-height: 1.3;
                 font-family: Graphik-bold;
             }
             .bg-footer-image {
