@@ -13,7 +13,7 @@ $route = request()->route()->getName();
         <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/uPwnUtgENs6oGze68SZIEVle44XQNew9jB2J3Hgz.png">
         <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/7OEt1dSBmUch2d64bmcpKz5cPpNkyF9YZvWERKac.png">
         <link rel="prefetch" href="http://localhost/travelguide/public/storage/images/0OSaSPrAViwYWBaN6HBinM7MlEySwZYTCsgL4dHA.png">
-        <title>{{ config('app.name', 'Travelguide') }}</title>
+        <title>JTI | Travelguide</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
