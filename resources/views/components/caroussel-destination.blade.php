@@ -1,7 +1,7 @@
 @props(['items' , 'name'])
 
 
-<div class="block swiper pattern-bg" style="background-color:#ffe713bd" id="{{$name}}_slider" data-id="{{$name}}_slider">
+<div class="block swiper pattern-bg" style=" " id="{{$name}}_slider" data-id="{{$name}}_slider">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         @foreach($items as $index => $item)
