@@ -21,8 +21,13 @@
 @endisset
 
 @isset($destination->locations['nightlife'])
-<x-title-destination>Nigthlife</x-title-destination>
+<x-title-destination>Night life</x-title-destination>
 <x-caroussel-destination :items="$destination->locations['nightlife']" name="nightlife"></x-caroussel-destination>
+@endisset
+
+@isset($destination->locations['getting_around'])
+<x-title-destination>Nigthlife</x-title-destination>
+<x-caroussel-destination :items="$destination->locations['getting_around']" name="getting_around"></x-caroussel-destination>
 @endisset
 </div>
  <!-- Download PDF button -->
