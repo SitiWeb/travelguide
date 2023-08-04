@@ -1,1 +1,1 @@
-<x-plane/>
+<x-plane width="w-12"/>
