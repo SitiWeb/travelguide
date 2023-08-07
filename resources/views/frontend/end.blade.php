@@ -9,7 +9,7 @@ $slot2= $button;
     <button type="submit"><x-plane class="mb-4 text-center" width="w-14"/></button>
 </form>
 
-<x-title class="mb-8 text-4xl">Start planning<br>your next trip</x-title>
+<x-title class="mb-8 text-3xl">Start planning<br>your next trip</x-title>
 
 <x-text class="mb-8">Please find your suggested<br>travel destinations below</x-text>
 </x-guest-layout>
