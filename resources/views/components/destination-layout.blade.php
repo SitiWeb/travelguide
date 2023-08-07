@@ -67,7 +67,7 @@
             <div class="">
                 <div class=" sm:max-w-2xl  mx-auto">
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm">
-                        <div class="text-gray-900 dark:text-gray-100" style="background: #f6e82a;">
+                        <div class="text-gray-900 dark:text-gray-100" style="background: #004578;">
                             {{ $slot }}
                         </div>
                     </div>

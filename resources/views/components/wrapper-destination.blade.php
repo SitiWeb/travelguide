@@ -2,6 +2,7 @@
 
 <x-header-destination :destination="$destination"/>
 <x-description-destination>{!!$destination->description!!}</x-description-destination>
+<div style="background: #f6e82a;"> 
 <div class="background-pattern">
 @isset($destination->locations['hotel'])
 <x-title-destination>Places to stay</x-title-destination>
@@ -30,6 +31,7 @@
 <x-title-destination>Getting around</x-title-destination>
 <x-caroussel-destination destination="{{$destination->id}}" :items="$destination->locations['get_around']" name="get_around"></x-caroussel-destination>
 @endisset
+</div>
 </div>
  <!-- Download PDF button -->
  @if($destination->pdf_path)
