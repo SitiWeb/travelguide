@@ -18,6 +18,9 @@ const buildSwiperSlider = sliderElm => {
     return new Swiper(`#${sliderElm.id}`, {
       
         loop : true,
+        pagination: {
+        el: ".swiper-pagination",
+      },
     });
 }
 
@@ -29,6 +32,7 @@ const allSliders = document.querySelectorAll('.swiper');
 allSliders.forEach(slider => buildSwiperSlider(slider));
 new Swiper(`.slider-top`, {
       loop : true,
+      
   });
 </script>
 </x-destination-layout>
