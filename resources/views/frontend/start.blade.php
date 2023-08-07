@@ -8,7 +8,7 @@ $slot2= $lightblue.$button.$terms;
 <x-guest-layout slot2="{!!$slot2!!}">
 <x-plane  class="mb-4 text-center" width="w-14"/>
 <x-title class="mb-8 text-6xl">Travel Guide</x-title>
-<x-text class="mb-8 graphik-font ">Welcome to the Camel Travel Guide,<br>here we are suggesting different iconic<br>cities in europe for you to explore.</x-text>
+<x-text class="mb-8 graphik-font " >Welcome to the Camel Travel Guide,<br>here we are suggesting different iconic<br>cities in europe for you to explore.</x-text>
 
 </x-guest-layout>
 

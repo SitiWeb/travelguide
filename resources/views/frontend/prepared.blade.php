@@ -47,7 +47,7 @@
                     }
                     else{
                         if (response.image_url){
-                            $('.bg-footer-image').css('background-image', 'url(' + response.image_url + ')');
+                            $('.bg-image-sw').attr('src', response.image_url);
                         }
                         jQuery('.steps-wrapper').html(response.steps_html);
                         jQuery('.card-wrapper').html(response.question_html);                 

@@ -69,17 +69,18 @@ $route = request()->route()->getName();
         <div style="min-height:100%;min-height:100vh;min-height:100dvh; background-size:contain;" class="sm:border  w-full sm:max-w-2xl flex flex-col justify-between lg:pt-12 sm:pt-6 items-center background-blue-camel bg-footer-image bg-contain md:bg-cover bg-no-repeat bg-bottom" >
          
 
-            <div class=" mt-12 px-6 py-4 sm:rounded-lg ">
+            <div class=" mt-12 px-6 py-4 sm:rounded-lg z-10" style="margin-bottom: -100px;">
                 {{ $slot }}
             </div>
             
-            @isset($slot2)
+            
             <div class="w-full">
-                <div class="rounded-none"><img src="{{ $background }}"/></div>
-                
+                <div class="rounded-none" ><img style="position:relative; bottom:-1px;" class="bg-image-sw" src="{{ $background }}"/></div>
+                @isset($slot2)
                 <div class="rounded-none bg-white p-6"><div class="mb-12">@php echo  $slot2 @endphp</div></div>
+                @endisset
             </div>
-            @endisset
+            
 
         </div>
     </body>
