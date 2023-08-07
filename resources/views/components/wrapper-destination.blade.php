@@ -5,30 +5,30 @@
 <div class="background-pattern">
 @isset($destination->locations['hotel'])
 <x-title-destination>Places to stay</x-title-destination>
-<x-caroussel-destination :items="$destination->locations['hotel']" name="hotel">  
+<x-caroussel-destination destination="{{$destination->id}}" :items="$destination->locations['hotel']" name="hotel">  
 </x-caroussel-destination>
 @endisset
 
 @isset($destination->locations['activity'])
 
 <x-title-destination>Things to do</x-title-destination>
-<x-caroussel-destination :items="$destination->locations['activity']" name="activity"></x-caroussel-destination>
+<x-caroussel-destination destination="{{$destination->id}}" :items="$destination->locations['activity']" name="activity"></x-caroussel-destination>
 @endisset
 
 @isset($destination->locations['restaurant'])
 <x-title-destination>Places to eat</x-title-destination>
-<x-caroussel-destination :items="$destination->locations['restaurant']" name="restaurant"></x-caroussel-destination>
+<x-caroussel-destination destination="{{$destination->id}}" :items="$destination->locations['restaurant']" name="restaurant"></x-caroussel-destination>
 @endisset
 
 @isset($destination->locations['nightlife'])
 <x-title-destination>Night life</x-title-destination>
-<x-caroussel-destination :items="$destination->locations['nightlife']" name="nightlife"></x-caroussel-destination>
+<x-caroussel-destination destination="{{$destination->id}}" :items="$destination->locations['nightlife']" name="nightlife"></x-caroussel-destination>
 @endisset
 
 
 @isset($destination->locations['get_around'])
 <x-title-destination>Getting around</x-title-destination>
-<x-caroussel-destination :items="$destination->locations['get_around']" name="get_around"></x-caroussel-destination>
+<x-caroussel-destination destination="{{$destination->id}}" :items="$destination->locations['get_around']" name="get_around"></x-caroussel-destination>
 @endisset
 </div>
  <!-- Download PDF button -->

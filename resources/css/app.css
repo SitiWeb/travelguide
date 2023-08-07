@@ -4,6 +4,17 @@
 
 /* width */
 
+:root {
+    --swiper-navigation-size: 30px;
+    --swiper-navigation-top-offset: 50%;
+    --swiper-navigation-sides-offset: 5px;
+    --swiper-navigation-color: var(#004578);
+}
+
+.swiper-button-next {
+    color: var(--swiper-navigation-color);
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -120,4 +131,13 @@
 .swiper {
     width: 100%;
     height: auto;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    color: #004578;
+}
+
+.nav-main {
+    position: fixed;
 }
