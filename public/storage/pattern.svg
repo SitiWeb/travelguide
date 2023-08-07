@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505.83 510.65">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505.83 510.65" >
   <defs>
     <style>
       .cls-1 {
@@ -16,7 +16,7 @@
       }
 
       .cls-3 {
-        fill: #e9a823;
+        fill: ;
       }
     </style>
   </defs>

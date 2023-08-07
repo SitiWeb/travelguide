@@ -34,7 +34,9 @@ Route::post('/clear-responses', [FrontendController::class, 'clearResponses'])->
 Route::get('/', function () {   return view('welcome');});
 
 Route::get('/backend', function () {   return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 Route::middleware('auth')->group(function () {
 
     Route::resource('/backend/questions',QuestionController::class);

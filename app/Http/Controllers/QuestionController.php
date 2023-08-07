@@ -46,7 +46,7 @@ class QuestionController extends Controller
         $question = Question::create($request->only('question', 'option_1', 'option_2'));
         // Handle image upload if a new image file is provided
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $imagePath = $request->file('image')->store('images', 'public'); // Change the storage path as per your requirement
+            $imagePath = $request->file('image')->store('public'); // Change the storage path as per your requirement
             // Save the image path to the destination
             $question->image_path = $imagePath;
             $question->save();
@@ -93,7 +93,7 @@ class QuestionController extends Controller
 
         // Handle image upload if a new image file is provided
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $imagePath = $request->file('image')->store('images', 'public'); // Change the storage path as per your requirement
+            $imagePath = $request->file('image')->store('public'); // Change the storage path as per your requirement
             // Save the image path to the destination
             $question->image_path = $imagePath;
             $question->save();

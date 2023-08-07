@@ -41,8 +41,11 @@
                 <p class="mt-2 text-sm text-gray-500">
                 @if($question->image_path)
 
-                <a href="{{ asset('storage/' . $question->image_path) }}" class="text-blue-600" >{{substr($question->image_path, 5)}}</a>    <br>
+                <a href="{{ url('storage/' . $question->image_path) }}" class="text-blue-600" >{{($question->image_path)}}</a>    <br>
                 @endif
+                @if ($question->image_path)
+    <img src="{{ asset('storage/' . $question->image_path) }}" alt="Question Image">
+@endif
                 Leave this field empty if you don't want to change the image.</p>
             </div>
             <x-primary-button>Update</x-primary-button>

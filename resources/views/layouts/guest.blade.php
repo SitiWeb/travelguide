@@ -69,7 +69,7 @@ $route = request()->route()->getName();
         <div style="min-height:100%;min-height:100vh;min-height:100dvh; background-size:contain;" class="sm:border  w-full sm:max-w-2xl flex flex-col justify-between lg:pt-12 sm:pt-6 items-center background-blue-camel bg-footer-image bg-contain md:bg-cover bg-no-repeat bg-bottom" >
          
 
-            <div class=" mt-12 px-6 py-4 sm:rounded-lg z-10" style="margin-bottom: -100px;">
+            <div class=" mt-8 px-6 pt-4 sm:rounded-lg z-10" style="margin-bottom: -100px;">
                 {{ $slot }}
             </div>
             
