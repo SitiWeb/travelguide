@@ -6,6 +6,7 @@
         <div class="mb-2"><div class="graphik-font text-color-camel-alt text-sm" >{{$item->address}}</div></div>
         @endisset
         @isset($item->url)
+        @if (!empty($item->url))
         <div class="mb-2"><a class="graphik-font text-color-camel-alt " href="{{ $item->url }}">
                     <div class="flex items-center gap-1">
                         <svg fill="#00abe3" xmlns="http://www.w3.org/2000/svg" height="1em"
@@ -17,6 +18,7 @@
                     </div>
                 </a>
             </div>
+        @endif
         @endisset
         <div class="graphik-font text-sm">{{$item->description}}</div>
         @isset($item->price)
