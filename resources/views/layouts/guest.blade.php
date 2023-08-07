@@ -75,9 +75,9 @@ $route = request()->route()->getName();
             
             @isset($slot2)
             <div class="w-full">
-                <div><img src="{{ $background }}"/></div>
+                <div class="rounded-none"><img src="{{ $background }}"/></div>
                 
-                <div class="bg-white p-6"><div class="mb-12">@php echo  $slot2 @endphp</div></div>
+                <div class="rounded-none bg-white p-6"><div class="mb-12">@php echo  $slot2 @endphp</div></div>
             </div>
             @endisset
 
