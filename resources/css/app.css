@@ -11,6 +11,10 @@
     --swiper-navigation-color: var(#004578);
 }
 
+.swiper-button-next:after {
+    color: #004578;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
