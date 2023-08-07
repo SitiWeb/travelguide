@@ -19,7 +19,7 @@ use App\Http\Controllers\AnswerController;
 |
 */
 
-Route::get('/start', function () { return view('frontend.start');})->name('start');
+Route::get('/', function () { return view('frontend.start');})->name('start');
 Route::get('/questions', function () { return view('frontend.questions');})->name('questions');
 Route::get('/destination/{id}', [FrontendController::class, 'destination'] )->name('frontend.destinations');
 Route::get('/questions', [FrontendController::class, 'showQuestion'] )->name('questions');
@@ -31,7 +31,7 @@ Route::post('/save-response', [FrontendController::class, 'saveResponse'])->name
 
 Route::post('/clear-responses', [FrontendController::class, 'clearResponses'])->name('clear_responses');
 
-Route::get('/', function () {   return view('welcome');});
+Route::get('/temp', function () {   return view('welcome');});
 
 Route::get('/backend', function () {   return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/linkstorage', function () {
