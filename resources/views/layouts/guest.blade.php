@@ -1,4 +1,4 @@
-@props(['slot2', 'background' =>  url('storage/Footer4x.png')])
+@props(['slot2', 'background' =>  url('storage/new-footer-bg.svg')])
 @php
 $route = request()->route()->getName();
 @endphp
@@ -47,10 +47,10 @@ $route = request()->route()->getName();
                 line-height: 1.3;
                 font-family: Graphik-bold;
             }
-            .bg-footer-image {
+            /* .bg-footer-image {
                 background-image:url('{{ $background }}');
               
-            }
+            } */
        
             
         </style>
@@ -63,10 +63,10 @@ $route = request()->route()->getName();
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
-    <body class="page-{{ str_replace('.', '-', $route) }} font-sans text-gray-900 antialiased bg-white flex justify-center overflow-hidden" >
+    <body class="page-{{ str_replace('.', '-', $route) }} font-sans text-gray-900 antialiased bg-white flex justify-center" >
  
 
-        <div style="min-height:100%;min-height:100vh;min-height:100dvh; background-size:contain;" class="sm:border  w-full sm:max-w-2xl flex flex-col justify-between lg:py-12 sm:pt-6 sm:pb-12 items-center background-blue-camel bg-footer-image bg-contain md:bg-cover bg-no-repeat bg-bottom" >
+        <div style="min-height:100%;min-height:100vh;min-height:100dvh; background-size:contain;" class="sm:border  w-full sm:max-w-2xl flex flex-col justify-between lg:pt-12 sm:pt-6 items-center background-blue-camel bg-footer-image bg-contain md:bg-cover bg-no-repeat bg-bottom" >
          
 
             <div class=" mt-12 px-6 py-4 sm:rounded-lg ">
@@ -74,8 +74,10 @@ $route = request()->route()->getName();
             </div>
             
             @isset($slot2)
-            <div class="mb-6 px-6 py-4 sm:rounded-lg">
-                @php echo  $slot2 @endphp
+            <div class="w-full">
+                <div><img src="{{ $background }}"/></div>
+                
+                <div class="bg-white p-6"><div class="mb-12">@php echo  $slot2 @endphp</div></div>
             </div>
             @endisset
 
