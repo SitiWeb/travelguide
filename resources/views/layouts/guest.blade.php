@@ -77,11 +77,38 @@ $route = request()->route()->getName();
             <div class="w-full">
                 <div class="rounded-none" ><img style="position:relative; bottom:-1px;" class="bg-image-sw" src="{{ $background }}"/></div>
                 @isset($slot2)
-                <div class="rounded-none bg-white p-6"><div class="mb-12">@php echo  $slot2 @endphp</div></div>
+                <div class="rounded-none bg-white p-6"><div class="mb-4">@php echo  $slot2 @endphp</div></div>
                 @endisset
             </div>
             
 
         </div>
     </body>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get references to the checkbox and button
+    var termsCheckbox = document.getElementById('termsCheckbox');
+    var startButton = document.getElementById('startButton');
+
+    // Function to toggle button disabled status based on checkbox status
+    function toggleButton() {
+      startButton.disabled = !termsCheckbox.checked;
+    }
+
+    // Add event listener to the checkbox to toggle button disabled status
+    termsCheckbox.addEventListener('change', toggleButton);
+
+    // Add event listener to the button click event
+    startButton.addEventListener('click', function(event) {
+      // Prevent the default event (e.g., navigation) of the button if the checkbox is not checked
+      if (!termsCheckbox.checked) {
+        event.preventDefault();
+        alert('Please accept the Terms & Conditions before proceeding.');
+      }
+    });
+
+    // Initial check to set the button status when the page loads
+    toggleButton();
+  });
+</script>
 </html>

@@ -1,5 +1,9 @@
 <div class="flex justify-center mt-2">
-<a href="{{route('frontend.terms')}}"  {{ $attributes->merge(['class' => 'graphik-font text-sm underline text-color-terms text-center']) }} >
+<label>
+      <input type="checkbox"  id="termsCheckbox" name="terms_checkbox" required><span  class=" ml-2 graphik-font" style="color:#a5a4a5;"> I accept the 
+      <a href="{{route('frontend.terms')}}"  {{ $attributes->merge(['class' => ' text-sm underline text-color-terms text-center']) }} >
     Terms & Conditions
-</a>
+</a></span>
+    </label>
+
 </div>

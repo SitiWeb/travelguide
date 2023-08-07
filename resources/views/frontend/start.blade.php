@@ -1,6 +1,6 @@
 @php
 $lightblue =  Blade::render('<x-light-blue-text class="mb-2">Tap "Start" to let us know your travel preference</x-light-blue-text>', ['class' => __('mb-8')]);
-$button =  Blade::render('<x-button class="" url="'.route('questions').'">Start</x-button>', ['url' => route('questions')]);
+$button =  Blade::render('<x-button class="" id="startButton" url="'.route('questions').'">Start</x-button>', ['url' => route('questions')]);
 $terms =  Blade::render('<x-terms/>');
 $slot2= $lightblue.$button.$terms;
 @endphp
