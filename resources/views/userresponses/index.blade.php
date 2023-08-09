@@ -4,12 +4,20 @@
             {{ __('Responses') }}
         </h2>
     </x-slot>
+
+    @if(request()->query('filter') == 'rating_not_null')
+    <div class="mb-4">
+        <a href="{{ route('responses.index') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+            Clear Filter
+        </a>
+    </div>
+    @else
     <div class="mb-4">
         <a href="{{ route('responses.index', ['filter' => 'rating_not_null']) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Filter responses with Rating
         </a>
     </div>
-
+    @endif
     <table class="min-w-full bg-white border border-gray-300 rounded-md">
             <thead>
                 <tr>
