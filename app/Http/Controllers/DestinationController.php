@@ -128,7 +128,7 @@ class DestinationController extends Controller
         }
         // Handle image upload if a new image file is provided
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $imagePath = $request->file('image')->store('images', 'public'); // Change the storage path as per your requirement
+            $imagePath = $request->file('image')->store('images', 'publicv'); // Change the storage path as per your requirement
             // Save the image path to the destination
             $destination->image_path = $imagePath;
             $destination->save();
