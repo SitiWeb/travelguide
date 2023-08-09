@@ -102,7 +102,7 @@ class FrontendController extends Controller
             return response()->json(['error' => 'Invalid rating value'], 400);
         }
     
-        $userResponse = UserResponse::find($request->input('user_response_id'));
+        $userResponse = Userresponse::find($request->input('user_response_id'));
         $userResponse->rating = $rating;
         $userResponse->save();
     
