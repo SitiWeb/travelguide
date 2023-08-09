@@ -10,6 +10,7 @@
         <div><x-star class="star" rating="5" fill="white"/></div>
         
     </div>
+    <div class="text-color-camel camel-font text-center" id="response-result"></div>
 </div>
 
 <style>
@@ -89,7 +90,7 @@ document.querySelectorAll('.radio-label').forEach((star, index, stars) => {
                 _token: '{{ csrf_token() }}' // Add CSRF token for Laravel
             },
             success: function(response) {
-                alert('Rating updated successfully');
+                jQuery('#response-result').html('Thank you for your feedback');
             },
             error: function(response) {
                 alert('An error occurred while updating the rating');
