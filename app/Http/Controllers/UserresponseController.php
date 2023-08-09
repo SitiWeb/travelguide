@@ -8,7 +8,8 @@ class UserresponseController extends Controller
 {
     public function index()
     {
-        $userResponses = Userresponse::paginate(50);
+        $userResponses = Userresponse::orderBy('created_at', 'desc')->paginate(50);
         return view('userresponses.index', compact('userResponses'));
     }
+
 }
