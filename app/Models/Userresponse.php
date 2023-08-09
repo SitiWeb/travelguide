@@ -21,5 +21,8 @@ class Userresponse extends Model
         'destination',
         'rating',
     ];
-
+  
+    protected $table = 'userresponses';
+   
+    
 }

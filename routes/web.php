@@ -8,6 +8,7 @@ use App\Http\Controllers\VenuesController;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\UserresponseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,10 +35,13 @@ Route::post('/clear-responses', [FrontendController::class, 'clearResponses'])->
 Route::get('/temp', function () {   return view('welcome');});
 
 Route::get('/backend', function () {   return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
+Route::post('/update-rating', [FrontendController::class, 'updateRating'])->name('update-rating');
+
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
 Route::middleware('auth')->group(function () {
+    Route::resource('/backend/responses',UserresponseController::class);
 
     Route::resource('/backend/questions',QuestionController::class);
     Route::resource('/backend/destinations',DestinationController::class);

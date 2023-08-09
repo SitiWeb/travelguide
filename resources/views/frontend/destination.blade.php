@@ -8,10 +8,21 @@
         <x-wrapper-destination :destination="$destination"/> 
         </div>
     @endforeach
+      
+        @if($userresponse)
+          @if(!$userresponse->rating).
+          <div class="swiper-slide">
+          <x-stars :userresponse="$userresponse"/>
+          </div>
+          @endif
+        @endif
+         
+       
     </div>
    
     </div>
-    <div class="swiper-pagination nav-main"></div>
+    <div><div class="swiper-pagination nav-main"></div></div>
+    
 <script>
 // Function that actually builds the swiper 
 const buildSwiperSlider = sliderElm => {
@@ -30,18 +41,18 @@ const buildSwiperSlider = sliderElm => {
     },
     });
 }
-document.querySelectorAll(".swiper").forEach(function (s) {
-//   let next = s.querySelector(".swiper-next");
-//   let prev = s.querySelector(".swiper-prev");
+// document.querySelectorAll(".swiper").forEach(function (s) {
+// //   let next = s.querySelector(".swiper-next");
+// //   let prev = s.querySelector(".swiper-prev");
 
-  new Swiper(s, {
-    // navigation: {
-    //   nextEl: next,
-    //   prevEl: prev
-    // },
+//   new Swiper(s, {
+//     // navigation: {
+//     //   nextEl: next,
+//     //   prevEl: prev
+//     // },
     
-  });
-});
+//   });
+// });
 
 
 // Get all of the swipers on the page

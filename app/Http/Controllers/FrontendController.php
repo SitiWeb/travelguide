@@ -37,6 +37,9 @@ class FrontendController extends Controller
     }
 
     public function destination($id){
+        $userResponses = Session::get('response_id');
+        $userresponse = Userresponse::find($userResponses);
+    
         $destination_orig = (Destination::with('venues')->find($id));
         $destinations = (Destination::with('venues')->where('type_id',$destination_orig->type_id)->get());
         
@@ -54,7 +57,7 @@ class FrontendController extends Controller
         shuffle($destinations);
         
          
-        return view('frontend.destination',  compact('destinations'));
+        return view('frontend.destination',  compact('destinations','userresponse'));
     }
 
     public function showQuestion($id = false)
@@ -90,7 +93,20 @@ class FrontendController extends Controller
 
         return view('frontend.prepared', compact('question','images'));
     }
-
+    public function updateRating(Request $request)
+    {
+        $rating = $request->input('rating');
+    
+        if ($rating < 1 || $rating > 5) {
+            return response()->json(['error' => 'Invalid rating value'], 400);
+        }
+    
+        $userResponse = \App\Models\UserResponse::find($request->input('user_response_id'));
+        $userResponse->rating = $rating;
+        $userResponse->save();
+    
+        return response()->json(['success' => 'Rating updated successfully']);
+    }
     public function saveResponse(Request $request)
     {
         $answer = $request->input('option');
@@ -123,7 +139,8 @@ class FrontendController extends Controller
                     'destination' => $randomDestination->id,
                 ]
             );
-            Session::put('destination_id',  $reponse->id);
+            Session::put('destination_id',  $randomDestination->id);
+            Session::put('response_id',  $reponse->id);
 
             return new JsonResponse([
                 'status' => 'success',
