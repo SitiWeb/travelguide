@@ -7,6 +7,7 @@ use App\Models\Answer;
 use App\Models\Userresponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -101,7 +102,7 @@ class FrontendController extends Controller
             return response()->json(['error' => 'Invalid rating value'], 400);
         }
     
-        $userResponse = \App\Models\UserResponse::find($request->input('user_response_id'));
+        $userResponse = UserResponse::find($request->input('user_response_id'));
         $userResponse->rating = $rating;
         $userResponse->save();
     

@@ -23,6 +23,6 @@ class Userresponse extends Model
     ];
   
     protected $table = 'userresponses';
-   
+    
     
 }
