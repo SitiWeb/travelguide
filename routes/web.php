@@ -9,6 +9,7 @@ use App\Http\Controllers\TypesController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\UserresponseController;
+use PDF;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,11 @@ use App\Http\Controllers\UserresponseController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/pdf', function() {
+    $pdf = PDF::loadView('pdf')->setPaper( array(0, 0, 5596.4, 768), 'landscape');
+    return $pdf->stream('certificate.pdf');
+});
 
 Route::get('/', function () { return view('frontend.start');})->name('start');
 Route::get('/questions', function () { return view('frontend.questions');})->name('questions');
