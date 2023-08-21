@@ -27,7 +27,7 @@ class FrontendController extends Controller
             }
             $destination->locations = $venues;
 
-            
+            return view('pdf', compact('destination'));
             $pdf = Pdf::loadView('pdf', compact('destination'))
                 ->setPaper([0, 0, 6000, 768], 'landscape');
             
