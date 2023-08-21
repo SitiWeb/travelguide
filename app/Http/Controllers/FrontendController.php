@@ -7,18 +7,35 @@ use App\Models\Answer;
 use App\Models\Userresponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 class FrontendController extends Controller
 {
     public function render_question($id = false){
-        
         $question = (Question::find($id));
-        
-    
         return view('frontend.prepared', compact('question'));
+    }
+
+    public function render_pdf($id){
+        $destination = Destination::find($id);
+        if ($destination) {
+            $venues = [];
+            foreach($destination->venues as $venue){
+                $venues[$venue->activity_type][] = $venue; 
+            }
+            $destination->locations = $venues;
+
+            
+            $pdf = Pdf::loadView('pdf', compact('destination'))
+                ->setPaper([0, 0, 6000, 768], 'landscape');
+            
+            return $pdf->stream('certificate.pdf');
+        } else {
+            // Handle the case where the destination with the given ID was not found
+            return response('Destination not found', 404);
+        }
     }
 
     public function end($id){

@@ -9,7 +9,7 @@ use App\Http\Controllers\TypesController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\UserresponseController;
-use PDF;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,13 +26,15 @@ Route::get('/pdf', function() {
     return $pdf->stream('certificate.pdf');
 });
 
+
+
 Route::get('/', function () { return view('frontend.start');})->name('start');
 Route::get('/questions', function () { return view('frontend.questions');})->name('questions');
 Route::get('/destination/{id}', [FrontendController::class, 'destination'] )->name('frontend.destinations');
 Route::get('/questions', [FrontendController::class, 'showQuestion'] )->name('questions');
 Route::get('/end/{id}', [FrontendController::class, 'end'] )->name('end');
 Route::get('/terms', function () { return view('frontend.terms'); })->name('frontend.terms');
-
+Route::get('/pdf/{id}', [FrontendController::class, 'render_pdf'] )->name('pdf');
 // Route for saving responses
 Route::post('/save-response', [FrontendController::class, 'saveResponse'])->name('save_response');
 
