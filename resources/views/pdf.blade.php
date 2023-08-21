@@ -68,7 +68,7 @@
 	</style>
 </head>
 <body>
-    <img src="{{ asset('storage/' . $destination->image_path) }}" alt='SINGAPORE' width='100%' height='auto'>
+    <img src="{{ public_path('storage/' . $destination->image_path) }}" alt='' width='100%' height='auto'>
     <div style='background-color:#114778;padding:50px'>
         <div style='background-color:white;color:#114778;border-radius:50px;padding:31px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>
             <p class='camel-font text-center'>
@@ -76,13 +76,10 @@
             </p>
         </div>
     </div>
-    {{ asset('storage/' . $destination->image_path) }}
+    {{ public_path('storage/' . $destination->image_path) }}
     <div style='background-image:url("{{ asset("assets/images/Patterns.png") }}"); background-position: center; background-size: cover; background-repeat: repeat-y;padding-bottom:10px'>
-     
-
         <x-title-destination-pdf>Places to stay</x-title-destination-pdf>
-        <x-caroussel-destination-pdf destination="{{$destination->id}}" :items="$destination->locations['hotel']" name="hotel" />  
-        
+        <x-caroussel-destination-pdf destination="{{$destination->id}}" :items="$destination->locations['hotel']" name="hotel" />     
         <x-title-destination-pdf>Things to do</x-title-destination-pdf>
         <x-caroussel-destination-pdf destination="{{$destination->id}}" :items="$destination->locations['activity']" name="activity" />  
 
