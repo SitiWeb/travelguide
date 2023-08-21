@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div style='background-image:url("{{ asset("assets/images/Patterns.jpeg") }}"); background-position: center; background-size: cover; background-repeat: no-repeat;padding-bottom:10px'>
+    <div style='background-image:url("{{ asset("assets/images/Patterns.png") }}"); background-position: center; background-size: cover; background-repeat: no-repeat;padding-bottom:10px'>
         <div class='title'>
             <p class='text-white h1'>Places to Stay &#8250;</p>
         </div>
