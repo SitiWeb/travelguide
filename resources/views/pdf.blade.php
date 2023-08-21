@@ -76,7 +76,7 @@
             </p>
         </div>
     </div>
-
+    {{ asset('storage/' . $destination->image_path) }}
     <div style='background-image:url("{{ asset("assets/images/Patterns.png") }}"); background-position: center; background-size: cover; background-repeat: repeat-y;padding-bottom:10px'>
      
 
