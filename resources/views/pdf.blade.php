@@ -69,7 +69,7 @@
 </head>
 <body>
     <img src="{{ url('assets/images/SINGAPORE_Interactive.jpg') }}" alt='SINGAPORE' width='100%' height='auto'>
-
+    {{ url('assets/images/SINGAPORE_Interactive.jpg') }}
     <div style='background-color:#114778;padding:50px'>
         <div style='background-color:white;color:#114778;border-radius:50px;padding:31px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>
             <p class='camel-font text-center'>
