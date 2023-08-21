@@ -76,8 +76,8 @@
             </p>
         </div>
     </div>
-    {{ public_path('storage/' . $destination->image_path) }}
-    <div style='background-image:url("{{ asset("assets/images/Patterns.png") }}"); background-position: center; background-size: cover; background-repeat: repeat-y;padding-bottom:10px'>
+  
+    <div style='background-image:url("{{ public_path("assets/images/Patterns.png") }}"); background-position: center; background-size: cover; background-repeat: repeat-y;padding-bottom:10px'>
         <x-title-destination-pdf>Places to stay</x-title-destination-pdf>
         <x-caroussel-destination-pdf destination="{{$destination->id}}" :items="$destination->locations['hotel']" name="hotel" />     
         <x-title-destination-pdf>Things to do</x-title-destination-pdf>
